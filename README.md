@@ -1,4 +1,4 @@
-# verification
+# Verification
 drc/lvs rule check  
 
 # Steps to do Schematic and Layout in tanner    

@@ -33,25 +33,25 @@ eg: my_register
 - In the GUI, click the **Rules** button in the left Panel and enter the following info:
   - `DRC Rules File:` Browse to the Calibre rule file eg.
     - `$XFAB_CALIBRE_RUNSET/xt018_1243` You can click Load to test any problem with the rule file.
-- Check Selection Recipe: Ignore
-- DRC Run Directory: Ideally `$PROJDIR/DRC`
-- Click Inputs and setup the inputs but the defaults should be Ok eg. GDSII/Export from Layout Viewer
-- Click Outputs and the defaults should be fine.
-- If none of the left panel buttons are red, click Run DRC
-- If the run was successful, save the GUI settings to a file by clicking File->Save Runset which can be loaded the next time.
+  - Check Selection Recipe: Ignore
+  - `DRC Run Directory`: Ideally `$PROJDIR/DRC`
+- Click `Inputs` and setup the inputs but the defaults should be Ok eg. GDSII/Export from Layout Viewer
+- Click `Outputs` and the defaults should be fine.
+- If none of the left panel buttons are red, click **Run DRC**
+- If the run was successful, save the GUI settings to a file by clicking `File->Save` Runset which can be loaded the next time.
 
 # LVS
-- In L-Edit, click Run Calibre LVS from the Calibre toolbar which will launch the GUI.
-- If the Load Runset File dialog box appears, you can Cancel it.
-- In the GUI, click the Rules button in the left Panel and enter the following info:
-- LVS Rules File: Browse to the Calibre rule file eg.
-- $XFAB_CALIBRE_RUNSET/xt018_1243
-- LVS Run Directory: Ideally $PROJDIR/DRC
-- Click Inputs and set up the Run, Step, and Layout tab information. Settings may be correct by default:
-- Select Layout vs Netlist from the Step dropdown menu.
-- Enable Export from layout viewer on the Layout tab.
-- Select GDSII in the Format dropdown list.
-- Click the Netlist tab on the Inputs pane to set up schematic (source) input.
-- Enable Export from schematic viewer. NOTE: If you want to LVS with netlist from another cell, open that cell in S-Edit and it will netlist that cell. If a netlist exists and you to LVS wrt that netlist then deselect that this button.
-- Select SPICE from the Format dropdown list.
-- Click Outputs and enable View Extraction Report after LVS finishes and Start RVE after LVS finishes.
+- In L-Edit, click **Run Calibre LVS** from the Calibre toolbar which will launch the GUI.
+- If the `Load Runset File` dialog box appears, you can **Cancel** it.
+- In the GUI, click the **Rules** button in the left Panel and enter the following info:
+  - `LVS Rules File`: Browse to the Calibre rule file eg.
+    - `$XFAB_CALIBRE_RUNSET/xt018_1243`
+  - `LVS Run Directory`: Ideally `$PROJDIR/DRC`
+- Click **Inputs** and set up the **Run**, **Step**, and **Layout** tab information. Settings may be correct by default:
+  - Select **Layout vs Netlist** from the Step dropdown menu.
+  - Enable **Export from layout viewer** on the **Layout** tab.
+  - Select **GDSII** in the Format dropdown list.
+- Click the **Netlist** tab on the Inputs pane to set up schematic (source) input.
+- Enable **Export from schematic viewer**. **NOTE:** If you want to LVS with netlist from another cell, open that cell in S-Edit and it will netlist that cell. If a netlist exists and you to LVS wrt that netlist then deselect that this button.
+- Select **SPICE** from the Format dropdown list.
+- Click **Outputs** and enable **View Extraction Report** after LVS finishes and Start RVE after LVS finishes.

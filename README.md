@@ -21,4 +21,4 @@ eg: my_resister
 - Save the layout View.
 
 # DRC/LVS (Calibre on Local Linux Host)  
-**NOTE** The following instructions are for running Calibre on the Linux host. To run verification on Windows, a SSH tunnel to the Linux host has to be created using PuTTy and a network drive has to be setup to share between the Windows and Linux host.
+**NOTE:** The following instructions are for running Calibre on the Linux host. To run verification on Windows, a SSH tunnel to the Linux host has to be created using PuTTy and a network drive has to be setup to share between the Windows and Linux host.

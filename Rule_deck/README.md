@@ -2,8 +2,8 @@
 # Overview  
 The Calibre Verification applications operate on rule files written in Standard Verification Rule Format(SVRF) or TCL verification Format(TVF).
 
-# LVS Data Flow
-![LVS_FLOW](https://github.com/vsao/verification/edit/main/Rule_deck/lvs_flow.png)
+# LVS Data Flow  
+![LVS FLOW](https://github.com/vsao/verification/edit/main/Rule_deck/lvs_flow.png)
 
 # Tool Invocation
 Calibre nmDRC and Calibre nmLVS require rule file and design database inputs in certain formats in order to perform verification tasks.

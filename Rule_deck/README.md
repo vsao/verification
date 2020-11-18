@@ -18,14 +18,6 @@ It is a tandard Verification Rule Format (SVRF) or Tcl Verification Format(TVF) 
 1. Specification statements: Such as describing the layout and source databases, and specifying where to store the results of a run.
 2. Layer operations: manipulation of layers through Boolean operations, measurement operations etc.  
 
-Required LVS Rule File Statements:
-- LAYOUT SYSTEM GDSII
-- LAYOUT PATH "<path_name>"
-- LAYOUT PRIMARY "<primary_cell_name>"
-- SOURCE SYSTEM SPICE
-- SOURCE PATH "<path_name>"
-- SOURCE PRIMARY "<subckt_cell_name>"
-
 ### Layout Databases
 The layout database must be one of the system formats:
 - GDSII, OASIS, LEFDEF, MIlKYWAY, ASCII, Binary, SPICE, CNET

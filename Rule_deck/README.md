@@ -30,29 +30,32 @@ A source database contains circuit information such as schematic netlist or sour
 
 ### Calibre nmLVS and Calibre nmLVS-H Command Line
 **General Command**  
-calibre {-lvs | -perc} [ -cs ] [ -cl ] [ -nowait | -wait n ] [ -cb ] [ -lmconfig licensing_config_filename ] [ -E svrf_output_from_tvf ] rule_file_name
-
+```bash
+calibre [ -lvs [ [ { -tl || -ts } cnet_file_name ][ -nonames ] [ -cell ][ -dblayers "name1,..." ][ -bpf [ no-extents ] ] [ -nl ] [ -cb ]] || [ -hier [ -automatch || -genhcells[=qs_tcl_file_name] ] || -flatten][ -ixf ] [ -nxf ]]
+```
 **Spice extraction using command line:**  
-
-**Command for spice extraction of layout:** calibre -spice cellname.sp rulefile
-
+```bash
+calibre -spice cellname.sp rulefile
+```
 For an example spice extraction of poly-register(rnp1) is shown below:  
-
-**command:** /CAD/mentor/calibre/2020-2-14-12/aoi_cal_2020.2_14.12/bin/calibre -spice my_resister.sp _xt018_1243_
- 
+```bash
+/CAD/mentor/calibre/2020-2-14-12/aoi_cal_2020.2_14.12/bin/calibre -spice my_resister.sp _xt018_1243_
+ ```
 **Generated output(my_register.sp):**  
+```bash
 .SUBCKT my_register t2 t1  
 ** N=4 EP=2 IP=0 FDC=1  
 R0 t2 t1 L=1e-05 W=2e-06 $[rnp1] $X=-1525 $Y=-1025 $D=122  
 .ENDS  
-
+ ```
 **lvs comparison using command line:** 
-
-**clibre -lvs -hier rulefile**
-
+```bash
+clibre -lvs -hier rulefile**
+```
 For an example lvs comparison of poly-register(rnp1) is shown below:  
-**command:** /CAD/mentor/calibre/2020-2-14-12/aoi_cal_2020.2_14.12/bin/calibre -lvs -hier _xt018_1243_
-
+```bash
+/CAD/mentor/calibre/2020-2-14-12/aoi_cal_2020.2_14.12/bin/calibre -lvs -hier _xt018_1243_
+```
 
 
 

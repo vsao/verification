@@ -1,17 +1,15 @@
 # LVS User Manual
 # Overview  
-For LVS Calibre nmLVS and Calibre nmLVS-H terminologies are used. When there is no possibility of confusion between flat and hierarchical tools, LVS is used instead of Calibre nmLVS/Calibre nmLVS-H.
-- Calibre nmLVS performs flat geometric layout versus schematic netlist comparison.
-- Calibre nmLVS-H performs hierarchical layout versus schematic SPICE netlist comparison.
+The Calibre Verification applications operate on rule files written in Standard Verification Rule Format(SVRF) or TCL verification Format(TVF).
 
 # Tool Invocation
-Calibre nmDRC and Calibre nmLVS require rule file and design database inputs in certain formats in order to perform verification tasks. The command lines for these tools have a large set of options for configuring the runs.
+Calibre nmDRC and Calibre nmLVS require rule file and design database inputs in certain formats in order to perform verification tasks.
 
 ## Required Input Files
 Files needed before invoking Calibre Physical Verification tool:
-- Rule File
-- Layout Databases
-- Source Databases 
+1. Rule File
+2. Layout Databases
+3. Source Databases 
 
 ### Rule File
 It is a tandard Verification Rule Format (SVRF) or Tcl Verification Format(TVF) form. Rule files contain two main categories of commands:  
@@ -19,8 +17,7 @@ It is a tandard Verification Rule Format (SVRF) or Tcl Verification Format(TVF) 
 2. Layer operations: manipulation of layers through Boolean operations, measurement operations etc.  
 
 ### Layout Databases
-The layout database must be one of the system formats:
-- GDSII, OASIS, LEFDEF, MIlKYWAY, ASCII, Binary, SPICE, CNET
+The layout database must be one of the system formats: GDSII, OASIS, LEFDEF, MIlKYWAY, ASCII, Binary, SPICE, CNET
 
 In SPICE Format for Layout, Calibre nmLVS-H netlist-to-netlist comparison uses a SPICE or HSPICE netlist for the layout.
 In CNET Format for Layout, CNET stands for Compiled NETlist, a proprietary Mentor Graphics netlist format. This database type can be used for the layout in flat LVS comparison.
@@ -29,11 +26,11 @@ In CNET Format for Layout, CNET stands for Compiled NETlist, a proprietary Mento
 A source database contains circuit information such as schematic netlist or source netlist. The source file is compared to the layout during an LVS run.
 
 ### Calibre nmLVS and Calibre nmLVS-H Command Line
-**General Command**  
+- **General Command**  
 ```bash
 calibre [ -lvs [ [ { -tl || -ts } cnet_file_name ][ -nonames ] [ -cell ][ -dblayers "name1,..." ][ -bpf [ no-extents ] ] [ -nl ] [ -cb ]] || [ -hier [ -automatch || -genhcells[=qs_tcl_file_name] ] || -flatten][ -ixf ] [ -nxf ]]
 ```
-**Spice extraction using command line:**  
+- **Spice extraction using command line:**  
 ```bash
 calibre -spice cellname.sp rulefile
 ```
@@ -48,7 +45,7 @@ For an example spice extraction of poly-register(rnp1) is shown below:
 R0 t2 t1 L=1e-05 W=2e-06 $[rnp1] $X=-1525 $Y=-1025 $D=122  
 .ENDS  
  ```
-**lvs comparison using command line:** 
+- **lvs comparison using command line:** 
 ```bash
 clibre -lvs -hier rulefile**
 ```

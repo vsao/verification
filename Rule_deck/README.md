@@ -26,6 +26,23 @@ Required LVS Rule File Statements:
 - SOURCE PATH "<path_name>"
 - SOURCE PRIMARY "<subckt_cell_name>"
 
+### Layout Databases
+The layout database must be one of the system formats:
+- GDSII, OASIS, LEFDEF, MIlKYWAY, ASCII, Binary, SPICE, CNET
+
+In SPICE Format for Layout, Calibre nmLVS-H netlist-to-netlist comparison uses a SPICE or HSPICE netlist for the layout.
+In CNET Format for Layout, CNET stands for Compiled NETlist, a proprietary Mentor Graphics netlist format. This database type can be used for the layout in flat LVS comparison.
+
+### Source Databases
+A source database contains circuit information such as schematic netlist or source netlist. The source file is compared to the layout during an LVS run.
+
+### Calibre nmLVS and Calibre nmLVS-H Command Line
+
+Spice extraction using command line:  
+
+
+
+
 
 
 

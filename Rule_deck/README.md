@@ -46,8 +46,8 @@ calibre {-lvs | -perc} [ -cs ] [ -cl ] [ -nowait | -wait n ] [ -cb ] [ -lmconfig
 
 For an example spice extraction of poly-register(rnp1) is shown below:  
 
-**command:**  /CAD/mentor/calibre/2020-2-14-12/aoi_cal_2020.2_14.12/bin/calibre -lvs -hier /home/NIS/projects/XT018-19/A0/work/tt18-vsao/LVS/_xt018_1243_
-
+**command:** /CAD/mentor/calibre/2020-2-14-12/aoi_cal_2020.2_14.12/bin/calibre -spice my_resister.sp _xt018_1243_
+ 
 **Generated output(my_register.sp):**  
 
 .SUBCKT my_register t2 t1  
@@ -55,8 +55,14 @@ For an example spice extraction of poly-register(rnp1) is shown below:
 R0 t2 t1 L=1e-05 W=2e-06 $[rnp1] $X=-1525 $Y=-1025 $D=122  
 .ENDS  
 
-**lvs comparison using command line:**   
+**lvs comparison using command line:** 
+
 **clibre -lvs -hier rulefile**
+
+For an example lvs comparison of poly-register(rnp1) is shown below:  
+**command:** /CAD/mentor/calibre/2020-2-14-12/aoi_cal_2020.2_14.12/bin/calibre -lvs -hier _xt018_1243_
+
+
 
 
 

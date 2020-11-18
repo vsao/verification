@@ -59,9 +59,9 @@ clibre -lvs -hier rulefile
 /CAD/mentor/calibre/2020-2-14-12/aoi_cal_2020.2_14.12/bin/calibre -lvs -hier _xt018_1243_
 ```
 - ``/CAD/mentor/calibre/2020-2-14-12/aoi_cal_2020.2_14.12/bin/calibre`` is the path of the calibre executable file.
--``-lvs`` command performs the lvs comaprison between spice netlists of schematic and layout.
--``-hier`` command performs herarchical lvs comparision.
--``_xt018_1243_`` is the rule file.  
+- ``-lvs`` command performs the lvs comaprison between spice netlists of schematic and layout.
+- ``-hier`` command performs herarchical lvs comparision.
+- ``_xt018_1243_`` is the rule file.  
 
 
 

@@ -46,10 +46,10 @@ Example:
 
 For an example generated spice file for a poly-register is shown below:  
 
-.SUBCKT my_resister t2 t1
-** N=4 EP=2 IP=0 FDC=1
-R0 t2 t1 L=1e-05 W=2e-06 $[rnp1] $X=-1525 $Y=-1025 $D=122
-.ENDS
+.SUBCKT my_resister t2 t1  
+** N=4 EP=2 IP=0 FDC=1  
+R0 t2 t1 L=1e-05 W=2e-06 $[rnp1] $X=-1525 $Y=-1025 $D=122  
+.ENDS  
 
 
 

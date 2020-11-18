@@ -49,10 +49,10 @@ For an example spice extraction of poly-register(rnp1) is shown below:
 **command:** /CAD/mentor/calibre/2020-2-14-12/aoi_cal_2020.2_14.12/bin/calibre -spice my_resister.sp _xt018_1243_
  
 **Generated output(my_register.sp):**  
-~.SUBCKT my_register t2 t1  
+.SUBCKT my_register t2 t1  
 ** N=4 EP=2 IP=0 FDC=1  
 R0 t2 t1 L=1e-05 W=2e-06 $[rnp1] $X=-1525 $Y=-1025 $D=122  
-.ENDS~  
+.ENDS  
 
 **lvs comparison using command line:** 
 

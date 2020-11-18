@@ -37,17 +37,18 @@ In CNET Format for Layout, CNET stands for Compiled NETlist, a proprietary Mento
 A source database contains circuit information such as schematic netlist or source netlist. The source file is compared to the layout during an LVS run.
 
 ### Calibre nmLVS and Calibre nmLVS-H Command Line
-**Usage**
+**General Command**  
 calibre {-lvs | -perc} [ -cs ] [ -cl ] [ -nowait | -wait n ] [ -cb ] [ -lmconfig licensing_config_filename ] [ -E svrf_output_from_tvf ] rule_file_name
 
 **Spice extraction using command line:**  
-**calibre -spice cellname.sp rulefile**  
+
+**Command for spice extraction of layout:** calibre -spice cellname.sp rulefile
 
 For an example spice extraction of poly-register(rnp1) is shown below:  
 
-command:  /CAD/mentor/calibre/2020-2-14-12/aoi_cal_2020.2_14.12/bin/calibre -lvs -hier /home/NIS/projects/XT018-19/A0/work/tt18-vsao/LVS/_xt018_1243_
+**command:**  /CAD/mentor/calibre/2020-2-14-12/aoi_cal_2020.2_14.12/bin/calibre -lvs -hier /home/NIS/projects/XT018-19/A0/work/tt18-vsao/LVS/_xt018_1243_
 
-Generated output(my_register.sp):  
+**Generated output(my_register.sp):**  
 
 .SUBCKT my_register t2 t1  
 ** N=4 EP=2 IP=0 FDC=1  

@@ -39,6 +39,19 @@ A source database contains circuit information such as schematic netlist or sour
 ### Calibre nmLVS and Calibre nmLVS-H Command Line
 
 Spice extraction using command line:  
+calibre {-lvs | -perc} [ -cs ] [ -cl ] [ -nowait | -wait n ] [ -cb ] [ -lmconfig licensing_config_filename ] [ -E svrf_output_from_tvf ] rule_file_name  
+
+Example:
+***calibre -spice cellname.sp rulefile***  
+
+For an example generated spice file for a poly-register is shown below:  
+
+.SUBCKT my_resister t2 t1
+** N=4 EP=2 IP=0 FDC=1
+R0 t2 t1 L=1e-05 W=2e-06 $[rnp1] $X=-1525 $Y=-1025 $D=122
+.ENDS
+
+
 
 
 

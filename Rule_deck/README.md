@@ -10,8 +10,8 @@ Calibre nmDRC and Calibre nmLVS require rule file and design database inputs in 
 ## Required Input Files
 Files needed before invoking Calibre Physical Verification tool:
 - Rule File
-- Layout Databases — A geometric database for Calibre nmDRC applications, flat LVS, and hierarchical connectivity extraction; a layout SPICE netlist for LVS comparison.
-- Source Databases — A schematic SPICE netlist used for LVS comparison.  
+- Layout Databases
+- Source Databases 
 
 ### Rule File
 It is a tandard Verification Rule Format (SVRF) or Tcl Verification Format(TVF) form. Rule files contain two main categories of commands:  

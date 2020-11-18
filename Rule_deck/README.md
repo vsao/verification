@@ -1,15 +1,12 @@
 # LVS User Manual
-# Overview  
+## Overview  
 The Calibre Verification applications operate on rule files written in Standard Verification Rule Format(SVRF) or TCL verification Format(TVF).
 
-# LVS Data Flow  
+## LVS Data Flow  
 ![LVS FLOW](https://github.com/vsao/verification/edit/main/Rule_deck/lvs_flow.png?raw=true)
 
-# Tool Invocation
-Calibre nmDRC and Calibre nmLVS require rule file and design database inputs in certain formats in order to perform verification tasks.
-
-## Required Input Files
-Files needed before invoking Calibre Physical Verification tool:
+## Tool Invocation
+Calibre nmDRC and Calibre nmLVS require rule file and design database inputs in certain formats in order to perform verification tasks. There are certain files that needed before invoking Calibre Physical Verification tool:
 1. Rule File
 2. Layout Databases
 3. Source Databases 

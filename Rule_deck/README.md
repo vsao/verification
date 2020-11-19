@@ -1,6 +1,6 @@
 # LVS User Manual
 ## Overview  
-The Calibre Verification applications operate on rule files written in Standard Verification Rule Format(SVRF) or TCL verification Format(TVF).
+The Calibre Verification applications operate on rule files written in Standard Verification Rule Format(SVRF) or TCL verification Format(TVF). This mannual will guide one throgh the calibre LVS verification steps.
 
 ## LVS Data Flow  
 ![LVS FLOW](https://github.com/vsao/verification/blob/main/Rule_deck/lvs_flow.png?raw=true)  

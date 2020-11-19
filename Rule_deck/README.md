@@ -63,6 +63,11 @@ calibre -lvs -hier rulefile
 - ``-hier`` command performs herarchical lvs comparision.
 - ``_xt018_1243_`` is the rule file.  
 
+- Both spice extraction and lvs comparison can be done using a single command
+```bash
+/CAD/mentor/calibre/2020-2-14-12/aoi_cal_2020.2_14.12/bin/calibre -spice my_resister.sp -lvs -hier -nowait _xt018_1243_
+```
+- 
 
 
 

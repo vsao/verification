@@ -67,8 +67,30 @@ calibre -lvs -hier rulefile
 ```bash
 /CAD/mentor/calibre/2020-2-14-12/aoi_cal_2020.2_14.12/bin/calibre -spice my_resister.sp -lvs -hier -nowait _xt018_1243_
 ```
-- 
+- ``-nowait`` command causes Calibre to wait approximately 10 seconds before attempting to acquire substitute licenses.  
 
+### Output files
+By running the command for spice extraction and lvs comparison of a poly-resistor we get certain output files:  
+- ~my_resistor.sp~          : Contains extracted spice netlist of layout named "my_resistor".
+```bash
+.SUBCKT my_resistor t2 t1  
+** N=4 EP=2 IP=0 FDC=1  
+R0 t2 t1 L=1e-05 W=2e-06 $[rnp1] $X=-1525 $Y=-1025 $D=122  
+.ENDS  
+ ```
+- ~netlistLAYOUT~           : Contains the same informations as in my_register.sp
+```bash
+.SUBCKT my_resister T2 T1
+RR0 T2 T1 RNP1 l=1e-05 w=2e-06
+.ENDS
+```
+- ~netlistSOURCE~           : Contains extracted spice netlist of schmatic.
+```bash
+.SUBCKT my_resister T1 T2
+RRR1 T1 T2 RNP1 l=1e-05 w=2e-06
+.ENDS
+```
+- ~my_resistor.lvs.report~  : Contains results of lvs comparison such as ports, nets and instance mismatch.
 
 
 

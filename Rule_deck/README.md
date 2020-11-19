@@ -83,9 +83,9 @@ RR0 T2 T1 RNP1 l=1e-05 w=2e-06
 RRR1 T1 T2 RNP1 l=1e-05 w=2e-06
 .ENDS
 ```
-4. ``my_resistor.lvs.report``  : Contains the extraction informations such as lvs report file name, layout time, creation time and current directory.  
+4. ``my_resistor.lvs.report.ext``  : Contains the extraction informations such as lvs report file name, layout time, creation time and current directory.  
 
-5. ``my_resistor.lvs.report``  : Contains results of lvs comparison such as ports, nets and instance mismatch along with extraction informations as described in my_resistor.lvs.report.
+5. ``my_resistor.lvs.report``  : Contains results of lvs comparison such as ports, nets and instance mismatch along with extraction informations as described in my_resistor.lvs.report.ext.
 
 
 

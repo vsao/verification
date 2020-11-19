@@ -4,6 +4,7 @@ The Calibre Verification applications operate on rule files written in Standard 
 
 ## LVS Data Flow  
 ![LVS FLOW](https://github.com/vsao/verification/blob/main/Rule_deck/lvs_flow.png?raw=true)
+Figure1: LVS Data Flow
 
 ## Tool Invocation
 Calibre nmDRC and Calibre nmLVS require rule file and design database inputs in certain formats in order to perform verification tasks. There are certain files that needed before invoking Calibre Physical Verification tool:

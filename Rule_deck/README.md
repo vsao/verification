@@ -95,7 +95,7 @@ Rule file that is used in the above examples is interlinked with Some DRC/LVS Ve
 Figure2: Rule Files Inter-linkage
 
 For the reference purpose rule file template can be accessed from the link given below:  
-![Rule file Template](https://github.com/vsao/verification/blob/main/Rule_deck/_xt018_1243_)
+[Rule file Template](https://github.com/vsao/verification/blob/main/Rule_deck/_xt018_1243_)
 
 
 

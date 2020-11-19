@@ -87,7 +87,9 @@ RRR1 T1 T2 RNP1 l=1e-05 w=2e-06
 
 5. ``my_resistor.lvs.report``  : Contains results of lvs comparison such as ports, nets and instance mismatch along with extraction informations as described in my_resistor.lvs.report.ext.
 
-
+### Rule file
+Rule file that is used in the above examples is interlinked with Some DRC/LVS Verification rule files as shown below:
+![Rule files Inter-linkage](https://github.com/vsao/verification/blob/main/Rule_deck/rulefile.png)
 
 
 

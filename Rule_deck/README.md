@@ -91,7 +91,11 @@ RRR1 T1 T2 RNP1 l=1e-05 w=2e-06
 ### Rule file
 Rule file that is used in the above examples is interlinked with Some DRC/LVS Verification rule files as shown below:  
 
-![Rule files Inter-linkage](https://github.com/vsao/verification/blob/main/Rule_deck/rulefile.png)
+![Rule files Inter-linkage](https://github.com/vsao/verification/blob/main/Rule_deck/rulefile.png)  
+Figure2: Rule Files Inter-linkage
+
+For the reference purpose rule file template can be accessed from the link given below:  
+![Rule file Template](https://github.com/vsao/verification/blob/main/Rule_deck/_xt018_1243_)
 
 
 

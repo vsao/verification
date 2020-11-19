@@ -90,7 +90,7 @@ RR0 T2 T1 RNP1 l=1e-05 w=2e-06
 RRR1 T1 T2 RNP1 l=1e-05 w=2e-06
 .ENDS
 ```
-- ~my_resistor.lvs.report~  : Contains results of lvs comparison such as ports, nets and instance mismatch.
+- ~my_resistor.lvs.report~  : Contains results of lvs comparison such as ports, nets and instance mismatch
 
 
 

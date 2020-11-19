@@ -24,26 +24,36 @@ LVS RECOGNIZE GATES ALL                   // Specifies whether to recognize logi
 
 
 LVS ABORT ON SOFTCHK NO                  // Specifies whether to abort processing if an LVS Softchk violation is found.
-LVS ABORT ON SUPPLY ERROR YES            // Specifies whether to abort processing when connectivity extraction detects a problem with the power or ground nets. Observed in calibre -dfm, -lvs, and -perc runs. Not used in ICverify.
+LVS ABORT ON SUPPLY ERROR YES            // Specifies whether to abort processing when connectivity extraction detects a problem with the power or ground nets.
+                                         // Observed in calibre -dfm, -lvs, and -perc runs. Not used in ICverify.
+                                         
 LVS IGNORE PORTS NO                      // Specifies whether the LVS comparison algorithm should ignore ports.
-LVS SHOW SEED PROMOTIONS NO              // Specifies whether instances of devices formed by interaction of polygons from different levels of hierarchy are reported in a file. Used only in Calibre nmLVS-H and Calibre PERC.
-LVS SHOW SEED PROMOTIONS MAXIMUM 50      // Specifies the maximum number of polygons that appear in any check performed by the LVS Show Seed Promotions statement. Used only in Calibre nmLVS-H and Calibre PERC.
+LVS SHOW SEED PROMOTIONS NO              // Specifies whether instances of devices formed by interaction of polygons from different levels of hierarchy 
+                                         // are reported in a file. Used only in Calibre nmLVS-H and Calibre PERC.
+                                         
+LVS SHOW SEED PROMOTIONS MAXIMUM 50      // Specifies the maximum number of polygons that appear in any check performed by the LVS Show Seed Promotions statement.
+                                         //Used only in Calibre nmLVS-H and Calibre PERC.
 
 LVS ISOLATE SHORTS NO                   // Specifies whether to enable text short isolation.
 
 
 VIRTUAL CONNECT COLON NO               // Specifies identical net names containing a colon (:) to be virtually connected.
-VIRTUAL CONNECT REPORT NO              // Directs all Calibre and ICverify applications to report a warning (Calibre nmDRC applications) or a note (other applications) when a virtual connection is made by the connectivity extractor.
+VIRTUAL CONNECT REPORT NO              // Directs all Calibre and ICverify applications to report a warning (Calibre nmDRC applications) or 
+                                       //a note (other applications) when a virtual connection is made by the connectivity extractor.
 
 
 LVS EXECUTE ERC YES                   // Specifies whether ERC operations are executed during the circuit extraction phase.
 ERC RESULTS DATABASE "my_resistor.erc.results"              // Specifies the pathname of the ERC results database.
 ERC SUMMARY REPORT "my_resistor.erc.summary" REPLACE HIER   // Specifies the report filename and writing method for ERC.
-                                                            // REPLACE: Overwrites the previous contents of the summary file, if any, each time you run ERC. This is the default behavior if you do not specify a keyword from this set.
-                                                            // HIER: Optional keyword that instructs Calibre nmLVS-H to create a section in the summary report that lists non-empty rule check statistics by layout database cell.
+                                                            // REPLACE: Overwrites the previous contents of the summary file, if any, each time you run ERC.
+                                                            // This is the default behavior if you do not specify a keyword from this set.
+                                                            // HIER: Optional keyword that instructs Calibre nmLVS-H to create a section in the summary report 
+                                                            // that lists non-empty rule check statistics by layout database cell.
 
 
-ERC CELL NAME YES CELL SPACE XFORM    // Specifies whether to append the cell name associated with each ERC result to its signature line in an ASCII ERC results database. Used only in Calibre nmLVS-H.
+ERC CELL NAME YES CELL SPACE XFORM    // Specifies whether to append the cell name associated with each ERC result to its signature line
+                                      //in an ASCII ERC results database. Used only in Calibre nmLVS-H.
+                                      
 ERC MAXIMUM RESULTS 1000              // Specifies the maximum number of results for an individual rule check in ERC.
 ERC MAXIMUM VERTEX 4096              // Specifies the maximum vertex count of any ERC result polygon written to the ERC results database.                            
 

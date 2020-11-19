@@ -17,6 +17,14 @@ It is a tandard Verification Rule Format (SVRF) or Tcl Verification Format(TVF) 
 1. Specification statements: Such as describing the layout and source databases, and specifying where to store the results of a run.
 2. Layer operations: manipulation of layers through Boolean operations, measurement operations etc.  
 
+- Rule file that is used while running the lvs in command line is inter-linked with some other DRC/LVS Verification rule files as shown below:  
+
+![Rule files Inter-linkage](https://github.com/vsao/verification/blob/main/Rule_deck/rulefile.png)  
+Figure2: Rule Files Inter-linkage
+
+- For the reference purpose rule file template can be accessed from the link given below:  
+[Rule file Template](https://github.com/vsao/verification/blob/main/Rule_deck/_xt018_1243_)
+
 ### Layout Databases
 The layout database must be one of the system formats: GDSII, OASIS, LEFDEF, MIlKYWAY, ASCII, Binary, SPICE, CNET
 
@@ -87,15 +95,6 @@ RRR1 T1 T2 RNP1 l=1e-05 w=2e-06
 4. ``my_resistor.lvs.report.ext``  : Contains the extraction informations such as lvs report file name, layout time, creation time and current directory.  
 
 5. ``my_resistor.lvs.report``  : Contains results of lvs comparison such as ports, nets and instance mismatch along with extraction informations as described in my_resistor.lvs.report.ext.
-
-### Rule file
-- Rule file that is used in the above examples is interlinked with Some DRC/LVS Verification rule files as shown below:  
-
-![Rule files Inter-linkage](https://github.com/vsao/verification/blob/main/Rule_deck/rulefile.png)  
-Figure2: Rule Files Inter-linkage
-
-- For the reference purpose rule file template can be accessed from the link given below:  
-[Rule file Template](https://github.com/vsao/verification/blob/main/Rule_deck/_xt018_1243_)
 
 
 

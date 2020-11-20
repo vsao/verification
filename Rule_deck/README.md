@@ -82,13 +82,13 @@ R0 t2 t1 L=1e-05 W=2e-06 $[rnp1] $X=-1525 $Y=-1025 $D=122
  ```
 2. ``netlistLAYOUT``           : Contains the same informations as in my_register.sp
 ```bash
-.SUBCKT my_resister T2 T1
+.SUBCKT my_resistor T2 T1
 RR0 T2 T1 RNP1 l=1e-05 w=2e-06
 .ENDS
 ```
 3. ``netlistSOURCE``           : Contains extracted spice netlist of schmatic.
 ```bash
-.SUBCKT my_resister T1 T2
+.SUBCKT my_resistor T1 T2
 RRR1 T1 T2 RNP1 l=1e-05 w=2e-06
 .ENDS
 ```

@@ -9,7 +9,7 @@ eg: my_lib
 eg: my_register  
 - Open cell view(my_register) and place pins to both the terminals with the names t1 and t2.
 - Save the Schematic View.  
-- Type "ledstart" to open layout viewer.  
+- Type "ledstart" to open layout viewer.
 - Go to `setup->Technology reference` and set the appropriate technology.  
 - In layout editor go to "my_lib" library.  
 - Go to `cell->new view` and create new cell view with the same name as schematic view.  

@@ -22,4 +22,4 @@ lvs_GroundName VSSM
 lvs_LvsOutFile LVS_REPORT my_resister.lvs.report
 lvs_LvsOutFile SOURCE_NETLIST /home/NIS/projects/XT018-19/A0/work/tt18-vsao/verification/Rule_deck/Resistor/my_resister.src.net
 lvs_LvsOutFile RULES_FILE inputregrule
-lvs_LvsRunTimes 1606198194 1606198194
+lvs_LvsRunTimes 1606201169 1606201169

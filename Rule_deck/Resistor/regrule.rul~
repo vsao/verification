@@ -85,8 +85,6 @@ LAYER MAP   7     DATATYPE  0 50070     LAYER pimp        50070         // IP, P
 LAYER MAP  16     DATATYPE  5 50165	LAYER m1rdef      50165         // Metal1 Resistor Definition
 LAYER MAP  16     DATATYPE  2 50162	LAYER m1hole      50162         // Slots on Metal1
 LAYER MAP   2     DATATYPE  0 50020     LAYER nwell       50020         // NW, N-well
-LAYER MAP  10     DATATYPE  0 50100     LAYER pwblk       50100         // PB, P-well Block
-
 
 
 //LVS TEXT LAYER

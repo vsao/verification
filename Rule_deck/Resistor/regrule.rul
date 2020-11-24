@@ -1,0 +1,198 @@
+//------------------------------------------------------------
+//             Setup Environment
+//------------------------------------------------------------
+
+PRECISION  1000
+RESOLUTION 5
+
+UNIT CAPACITANCE FF
+UNIT LENGTH      U
+UNIT RESISTANCE  OHM
+
+MASK RESULTS DATABASE "mask.db"
+FLAG OFFGRID YES
+FLAG ACUTE YES
+FLAG SKEW YES
+FLAG NONSIMPLE YES
+FLAG NONSIMPLE PATH YES
+
+TEXT DEPTH PRIMARY
+
+LAYOUT PROCESS BOX RECORD YES
+
+//------------------------------------------------------------
+//         Setup Defaults for LVS
+//------------------------------------------------------------
+
+MASK SVDB DIRECTORY svdb XCALIBRE
+
+LVS REPORT                       "lvs.rep"
+LVS REPORT OPTION                S
+LVS POWER NAME                   VDD? DVDD VCC VDDA VDDB ADVDD VDDM
+LVS GROUND NAME                  GND? DVSS VSS GROUND AGND DGND VSSM
+LVS ABORT ON SUPPLY ERROR        NO
+LVS ALL CAPACITOR PINS SWAPPABLE NO
+LVS PIN NAME PROPERTY PHY_PIN    PIN
+LVS COMPONENT SUBTYPE PROPERTY   LVS_SUBTYPE
+LVS COMPONENT TYPE PROPERTY      LVS_TYPE
+LVS FILTER UNUSED BIPOLAR        NO
+LVS FILTER UNUSED MOS            NO
+LVS FILTER UNUSED RESISTORS      NO
+LVS FILTER UNUSED DIODES         NO
+LVS FILTER UNUSED CAPACITORS     NO
+LVS IGNORE PORTS                 NO
+LVS RECOGNIZE GATES              NONE
+LVS REDUCE PARALLEL BIPOLAR      NO
+LVS REDUCE PARALLEL CAPACITORS   NO
+LVS REDUCE SERIES   MOS          NO
+LVS REDUCE SPLIT    GATES        NO
+LVS REDUCE PARALLEL RESISTORS    NO
+LVS REDUCE SERIES CAPACITORS     NO
+LVS REDUCE SERIES RESISTORS      NO
+LVS REPORT MAXIMUM               100
+LVS PROPERTY RESOLUTION MAXIMUM  1000
+LVS SPICE REPLICATE DEVICES      YES
+LVS SPICE MULTIPLIER NAME       "M"
+LVS INJECT LOGIC                 NO
+LVS CHECK PORT NAMES             YES
+
+LVS WRITE LAYOUT NETLIST         "netlistLAYOUT"
+LVS WRITE SOURCE NETLIST         "netlistSOURCE"
+
+
+//------------------------------------------------------------
+//            INPUT-LAYERS
+//------------------------------------------------------------
+
+LAYER MAP  13     DATATYPE  0 50130
+LAYER MAP  13     DATATYPE  1 50131
+LAYER poly_dg     50130                                                 // P1, Poly1
+LAYER poly_dyi    50131                                                 // P1, (DUMMY) Poly1
+LAYER MAP   8     DATATYPE  0 50080     LAYER nimp        50080         // IN, N+ Implant
+LAYER MAP  15     DATATYPE  0 50150     LAYER cont        50150         // CT, Contact
+LAYER MAP  16     DATATYPE  0 50160
+LAYER MAP  16     DATATYPE  1 50161
+LAYER MAP  16     DATATYPE  9 50169
+LAYER MAP  16     DATATYPE 10 10160
+LAYER met1_dg     50160 50169                                           // M1, Metal1
+LAYER met1_dyi    50161                                                 // M1, (DUMMY) Metal1
+LAYER MAP  34     DATATYPE  0 50340     LAYER sblk        50340         // SB, Salicide Block
+LAYER MAP   3     DATATYPE  0 50030
+LAYER MAP   3     DATATYPE  1 50031
+LAYER diff_dg     50030                                                 // DF, Active Area
+LAYER diff_dyi    50031                                                 // DF, (DUMMY) Active Area
+LAYER MAP  19     DATATYPE  0 50190     LAYER pad         50190         // PA, Passivation
+LAYER MAP   7     DATATYPE  0 50070     LAYER pimp        50070         // IP, P+ Implant
+LAYER MAP   16    DATATYPE  5 50165	LAYER m1rdef      50165         // Metal1 Resistor Definition
+LAYER MAP   16    DATATYPE  2 50162	LAYER m1hole      50162         // Slots on Metal1
+
+
+LAYER MAP   13    TEXTTYPE  5 50135	LAYER polylabel   50135         // 3-terminal Resistor identification text
+LAYER MAP   2     DATATYPE  0 50020     LAYER nwell       50020         // NW, N-well
+LAYER MAP  87     DATATYPE  0 50870     LAYER hvnwell     50870         // HN, High-voltage N-well
+LAYER MAP  10     DATATYPE  0 50100     LAYER pwblk       50100         // PB, P-well Block
+
+
+
+//LVS TEXT LAYER
+LAYER MAP   13    TEXTTYPE  3 50133		LAYER POLY1_TEXT  50133
+LAYER MAP   16    TEXTTYPE  3 50163		LAYER MET1_TEXT   50163
+
+TEXT LAYER      POLY1_TEXT MET1_TEXT 
+PORT LAYER TEXT POLY1_TEXT MET1_TEXT 
+
+ATTACH POLY1_TEXT   p1trm
+ATTACH MET1_TEXT    m1trm
+
+LVS BLACK BOX PORT  poly_dg   POLY1_TEXT   p1trm
+LVS BLACK BOX PORT  met1_dg   MET1_TEXT    m1trm
+
+//------------------------------------------------------------
+//
+//------------------------------------------------------------
+
+implant = nimp OR pimp
+bkgnd1 = EXTENT
+bkgnd = SIZE bkgnd1 BY 1.0
+bulk_1 = copy bkgnd
+emptlay = pad NOT bkgnd
+
+
+//----------------------------------------------------------------------------
+//  DUMMY Pattern Generation
+//----------------------------------------------------------------------------
+
+#IFNDEF DUMMY_FILL
+diff_dyf = COPY emptlay
+poly_dyf = COPY emptlay
+#ENDIF
+
+//............................................................................
+
+diff_dy = diff_dyi OR diff_dyf
+diff = diff_dg OR diff_dy         //diffusion definition
+
+poly_dy = poly_dyi OR poly_dyf
+poly1 = poly_dg OR poly_dy        //poly1 definition
+
+gate = diff AND poly1
+
+rp_1 = sblk AND poly1
+rp_2 = (gate COIN OUT EDGE rp_1) EXPAND EDGE OUTSIDE BY 0.22 
+rp_5 = rp_1 NOT rp_2
+rnp1 = rp_5 AND nimp             //rnp1 definition
+
+p1trm0 = poly1 NOT rnp1
+
+rnp1_3 = rnp1 WITH TEXT "rnp1_3" polylabel
+rnp1_1 = rnp1 NOT rnp1_3
+
+
+thinmet_fill_all = RECTANGLES 5 2 2 INSIDE OF LAYER (EXTENT)
+
+
+dummy_fill_area = SIZE bulk_1 BY -1.0
+met1_fill_area = copy dummy_fill_area
+met1_dyf = thinmet_fill_all INSIDE met1_fill_area
+
+
+met1_dy = met1_dyi OR met1_dyf
+met1 = met1_dg OR met1_dy       // Metal1 definition
+
+met1sl = met1 NOT m1hole
+rm1 = met1sl AND m1rdef
+m1trm1 = met1sl NOT rm1
+
+m1trm = copy m1trm1
+p1trm = copy p1trm0
+
+
+//------------------------------------------------------------
+//            Layer Connections
+//------------------------------------------------------------
+
+CONNECT  m1trm p1trm BY cont
+
+
+
+
+DEVICE R(rnp1)      rnp1_1     p1trm   p1trm         NETLIST ELEMENT XR CMACRO getWLRes rnp1_1
+
+DMACRO getWLRes seed {[
+property l, w
+
+weff = 0.5
+ar   = area(seed)
+w    = 0.5 * (perimeter_coincide(pos,seed) + (perimeter_coincide(neg,seed)))
+l    = ar/w
+
+        if (bends(seed) > 0)
+        {
+        if  (W > L)
+        w = w - weff*bends(seed) * l
+        else
+        l = l - weff*bends(seed) * w
+        }
+]}
+
+

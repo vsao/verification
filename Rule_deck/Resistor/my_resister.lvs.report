@@ -16,7 +16,7 @@ LAYOUT NAME:              svdb/my_resister.sp ('my_resister')
 SOURCE NAME:              /home/NIS/projects/XT018-19/A0/work/tt18-vsao/verification/Rule_deck/Resistor/my_resister.src.net ('my_resister')
 RULE FILE:                inputregrule
 RULE FILE TITLE:          XT018_1243 Calibre DRC/LVS File : LP5MOS / MET4 / METMID / METTHK
-CREATION TIME:            Wed Nov 25 14:20:55 2020
+CREATION TIME:            Wed Nov 25 15:41:43 2020
 CURRENT DIRECTORY:        /home/NIS/projects/XT018-19/A0/work/tt18-vsao/verification/Rule_deck/Resistor
 USER NAME:                vsao
 CALIBRE VERSION:          v2020.2_14.12    Thu Apr 2 15:39:27 PDT 2020

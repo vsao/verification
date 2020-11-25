@@ -64,22 +64,14 @@ LVS WRITE SOURCE NETLIST         "netlistSOURCE"
 //------------------------------------------------------------
 
 LAYER MAP  13     DATATYPE  0 50130
-LAYER MAP  13     DATATYPE  1 50131
 LAYER poly_dg     50130                                                 // P1, Poly1
-LAYER poly_dyi    50131                                                 // P1, (DUMMY) Poly1
 LAYER MAP   8     DATATYPE  0 50080     LAYER nimp        50080         // IN, N+ Implant
 LAYER MAP  15     DATATYPE  0 50150     LAYER cont        50150         // CT, Contact
 LAYER MAP  16     DATATYPE  0 50160
-LAYER MAP  16     DATATYPE  1 50161
 LAYER MAP  16     DATATYPE  9 50169
-LAYER MAP  16     DATATYPE 10 10160
 LAYER met1_dg     50160 50169                                           // M1, Metal1
-LAYER met1_dyi    50161                                                 // M1, (DUMMY) Metal1
 LAYER MAP  34     DATATYPE  0 50340     LAYER sblk        50340         // SB, Salicide Block
-LAYER MAP  19     DATATYPE  0 50190     LAYER pad         50190         // PA, Passivation
-LAYER MAP   7     DATATYPE  0 50070     LAYER pimp        50070         // IP, P+ Implant
-LAYER MAP  16     DATATYPE  5 50165	LAYER m1rdef      50165         // Metal1 Resistor Definition
-LAYER MAP  16     DATATYPE  2 50162	LAYER m1hole      50162         // Slots on Metal1
+
 
 
 //LVS TEXT LAYER
@@ -92,61 +84,27 @@ PORT LAYER TEXT POLY1_TEXT MET1_TEXT
 ATTACH POLY1_TEXT   p1trm
 ATTACH MET1_TEXT    m1trm
 
-LVS BLACK BOX PORT  poly_dg   POLY1_TEXT   p1trm 
-LVS BLACK BOX PORT  met1_dg   MET1_TEXT    m1trm
 
 //------------------------------------------------------------
-//
+//            Layer Definitions
 //------------------------------------------------------------
 
-implant = nimp OR pimp
-bkgnd1 = EXTENT
-bkgnd = SIZE bkgnd1 BY 1.0
-bulk_1 = copy bkgnd
-emptlay = pad NOT bkgnd
+
+poly1 = copy poly_dg                    //poly1 definition
 
 
-//----------------------------------------------------------------------------
-//  DUMMY Pattern Generation
-//----------------------------------------------------------------------------
-
-#IFNDEF DUMMY_FILL
-diff_dyf = COPY emptlay
-poly_dyf = COPY emptlay
-#ENDIF
-
-//............................................................................
-
-poly_dy = poly_dyi OR poly_dyf
-poly1 = poly_dg OR poly_dy        //poly1 definition
+met1 = copy met1_dg                    // Metal1 definition
 
 
-thinmet_fill_all = RECTANGLES 5 2 2 INSIDE OF LAYER (EXTENT)
+rnp1 = (sblk AND poly1) AND nimp      //rnp1 definition
 
 
-dummy_fill_area = SIZE bulk_1 BY -1.0
-met1_fill_area = copy dummy_fill_area
-met1_dyf = thinmet_fill_all INSIDE met1_fill_area
+rnp1_1 = copy rnp1                    //Device layer definition
 
 
-met1_dy = met1_dyi OR met1_dyf
-met1 = met1_dg OR met1_dy       // Metal1 definition
-
-
-rp_1 = sblk AND poly1
-rnp1 = rp_1 AND nimp             //rnp1 definition
-
-
-p1trm0 = poly1 NOT rnp1
-rnp1_1 = copy rnp1
-
-
-met1sl = met1 NOT m1hole
-rm1 = met1sl AND m1rdef
-m1trm1 = met1sl NOT rm1
-
-m1trm = copy m1trm1             
-p1trm = copy p1trm0            // rnp1 nets definition
+m1trm = copy met1                     // Metal1 text layer definition
+           
+p1trm = poly1 NOT rnp1                // rnp1 nets definition
 
 
 //------------------------------------------------------------

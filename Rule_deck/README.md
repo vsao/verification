@@ -103,7 +103,7 @@ This Section provides summary information on the main elements in a SVRF rule fi
           Syntax: `Layer <name> <original_layer>`  
   - `name`: Specifies the name of the layer. Each name must be unique.
   - `original_layer`: It can be a layer number(allowed from 0 to 131071) or a layer name.  
- Examples:  
+Examples:  
  1. `layer poly_dg` : layer statement to assign name of the layer as poly_dg
  2. `Layer MAP 13 DATATYPE 0 5013` : 
    - `13` is the source layer

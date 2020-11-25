@@ -2,7 +2,7 @@
 ** CALIBRE VERSION: v2020.2_14.12    Thu Apr 2 15:39:27 PDT 2020
 ** SOURCE NAME: /home/NIS/projects/XT018-19/A0/work/tt18-vsao/verification/Rule_deck/Resistor/my_resister.src.net (my_resister)
 ** NETLIST FILE: netlistSOURCE
-** GENERATED: Wed Nov 25 15:41:43 2020
+** GENERATED: Wed Nov 25 18:50:53 2020
 
 
 .SUBCKT my_resister T1 T2 

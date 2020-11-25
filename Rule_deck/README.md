@@ -122,6 +122,7 @@ Syntax: `PORT LAYER TEXT <layer>`
 Syntax: `ATTACH layer1 layer2`
    - `layer1`: A required original layer.
    - `layer2`: A requrired original layer/layout set or derived polygon layer. This layer must appear as an input layer to CONNECT or SCONNECT operations.  
+   
 Examples:  
 1. `ATTACH POLY1_TEXT p1trm`
    - `POLY1_TEXT` : It is poly1 text layer.

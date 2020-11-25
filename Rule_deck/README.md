@@ -99,8 +99,11 @@ RRR1 T1 T2 RNP1 l=1e-05 w=2e-06
 
 ## Summary of Rule File Elements
 This Section provides summary information on the main elements in a SVRF rule file.
-1. Layer: This statement specifies input layer names and numbers to be used in the rule file.  
-          Syntax: Layer <name> <original_layer>  
+- Layer: This statement specifies input layer names and numbers to be used in the rule file.  
+          Syntax: `Layer <name> <original_layer>`  
+  - `name`: Specifies the name of the layer. Each name must be unique.
+  - `original_layer`: It can be a layer number(allowed from 0 to 131071) or a layer name.
+ Examples:  
  
 
 

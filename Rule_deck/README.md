@@ -98,7 +98,7 @@ RRR1 T1 T2 RNP1 l=1e-05 w=2e-06
 
 
 ## Summary of Rule File Elements
-This Section provides summary information on the main elements in a SVRF rule file.
+This Section provides summary information on the SVRV commands used to write a rule file for Poly-resistor(rnp1).
 - **Layer**: This statement specifies input layer names and numbers to be used in the rule file.  
              Syntax: `Layer <name> <original_layer>`  
   - `name`: Specifies the name of the layer. Each name must be unique.

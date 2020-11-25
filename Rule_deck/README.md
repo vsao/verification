@@ -103,9 +103,10 @@ This Section provides summary information on the main elements in a SVRF rule fi
              Syntax: `Layer <name> <original_layer>`  
   - `name`: Specifies the name of the layer. Each name must be unique.
   - `original_layer`: It can be a layer number(allowed from 0 to 131071) or a layer name.  
+
 Examples:  
-1. `layer poly_dg` : layer statement to assign name of the layer as poly_dg
-2. `Layer MAP 13 DATATYPE 0 5013` : 
+ 1. `layer poly_dg` : layer statement to assign name of the layer as poly_dg
+ 2. `Layer MAP 13 DATATYPE 0 5013` : 
     - `Layer MAP` Specifies datatype or texttype maps from GDSII or OASIS input to Calibre layer numbers. 
     - `13` is the source layer
     - `DATATYPE` is used to map drawn gerometric layers.

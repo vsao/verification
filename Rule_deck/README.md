@@ -106,7 +106,7 @@ This Section provides summary information on the main elements in a SVRF rule fi
 Examples:  
 1. `layer poly_dg` : layer statement to assign name of the layer as poly_dg
 2. `Layer MAP 13 DATATYPE 0 5013` : 
-  - `13` is the source layer
+  -- `13` is the source layer
   - `DATATYPE` is used to map drawn gerometric layers.
   - `0` is the source type that specifies particular datatype.
   - `5013` is the target layer which specifies a layer number to be used by calibre.

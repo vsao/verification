@@ -84,7 +84,6 @@ LAYER MAP  19     DATATYPE  0 50190     LAYER pad         50190         // PA, P
 LAYER MAP   7     DATATYPE  0 50070     LAYER pimp        50070         // IP, P+ Implant
 LAYER MAP  16     DATATYPE  5 50165	LAYER m1rdef      50165         // Metal1 Resistor Definition
 LAYER MAP  16     DATATYPE  2 50162	LAYER m1hole      50162         // Slots on Metal1
-LAYER MAP   2     DATATYPE  0 50020     LAYER nwell       50020         // NW, N-well
 
 
 //LVS TEXT LAYER
@@ -97,7 +96,7 @@ PORT LAYER TEXT POLY1_TEXT MET1_TEXT
 ATTACH POLY1_TEXT   p1trm
 ATTACH MET1_TEXT    m1trm
 
-LVS BLACK BOX PORT  poly_dg   POLY1_TEXT   p1trm
+LVS BLACK BOX PORT  poly_dg   POLY1_TEXT   p1trm 
 LVS BLACK BOX PORT  met1_dg   MET1_TEXT    m1trm
 
 //------------------------------------------------------------

@@ -99,19 +99,34 @@ RRR1 T1 T2 RNP1 l=1e-05 w=2e-06
 
 ## Summary of Rule File Elements
 This Section provides summary information on the main elements in a SVRF rule file.
-- Layer: This statement specifies input layer names and numbers to be used in the rule file.  
-          Syntax: `Layer <name> <original_layer>`  
+- **Layer**: This statement specifies input layer names and numbers to be used in the rule file.  
+             Syntax: `Layer <name> <original_layer>`  
   - `name`: Specifies the name of the layer. Each name must be unique.
   - `original_layer`: It can be a layer number(allowed from 0 to 131071) or a layer name.  
 Examples:  
 1. `layer poly_dg` : layer statement to assign name of the layer as poly_dg
 2. `Layer MAP 13 DATATYPE 0 5013` : 
+    - `Layer MAP` Specifies datatype or texttype maps from GDSII or OASIS input to Calibre layer numbers. 
     - `13` is the source layer
     - `DATATYPE` is used to map drawn gerometric layers.
     - `0` is the source type that specifies particular datatype.
     - `5013` is the target layer which specifies a layer number to be used by calibre.
 3. `layer MAP 13 TEXTTYPE` 3 50133
-  - `TEXTTYPE` is used to map text layer objects
+    - `TEXTTYPE` is used to map text layer objects.  
+- **TEXT Layer**: Specifies the layers in the database from which connectivity extraction text is read.
+Syntax: `TEXT LAYER <layer>`  
+- **PORT LAYER TEXT**: For input layout databases, causes text objects on the specified layer(s) in the top-level cell to be read and treated as text ports.  
+Syntax: `PORT LAYER TEXT <layer>`  
+- **ATTACH**: Transfers connectivity information from one layer to another. Used primarily for text label attachment.  
+Syntax: `ATTACH layer1 layer2`
+   - `layer1`: A required original layer.
+   - `layer2`: A requrired original layer/layout set or derived polygon layer. This layer must appear as an input layer to CONNECT or SCONNECT operations.  
+Examples:  
+1. `ATTACH POLY1_TEXT p1trm`
+   - `POLY1_TEXT` : It is poly1 text layer.
+   - `p1trm` : It is derived layer used in Resistor rule file example.
+
+    
  
  
 

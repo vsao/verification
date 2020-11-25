@@ -112,7 +112,7 @@ Examples:
     - `DATATYPE` is used to map drawn gerometric layers.
     - `0` is the source type that specifies particular datatype.
     - `5013` is the target layer which specifies a layer number to be used by calibre.
-3. `layer MAP 13 TEXTTYPE` 3 50133
+3. `layer MAP 13 TEXTTYPE 3 50133`
     - `TEXTTYPE` is used to map text layer objects.  
 - **TEXT Layer**: Specifies the layers in the database from which connectivity extraction text is read.
 Syntax: `TEXT LAYER <layer>`  

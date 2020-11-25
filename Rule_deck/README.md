@@ -127,6 +127,9 @@ Examples:
 1. `ATTACH POLY1_TEXT p1trm`
    - `POLY1_TEXT` : It is poly1 text layer.
    - `p1trm` : It is derived layer used in Resistor rule file example.
+   
+-**LVS BLACK BOX PORT**
+Syntax: LVS BLACK BOX PORT <original_layer> <text_layer><interconnect_layer>
 
     
  

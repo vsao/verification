@@ -97,6 +97,12 @@ RRR1 T1 T2 RNP1 l=1e-05 w=2e-06
 5. ``my_resistor.lvs.report``  : Contains results of lvs comparison such as ports, nets and instance mismatch along with extraction informations as described in my_resistor.lvs.report.ext.
 
 
+## Summary of Rule File Elements
+This Section provides summary information on the main elements in a SVRF rule file.
+1. Layer: This statement specifies input layer names and numbers to be used in the rule file.  
+          Syntax: Layer <name> <original_layer>  
+ 
+
 
 
 

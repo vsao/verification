@@ -115,7 +115,7 @@ Examples:
 3. `layer MAP 13 TEXTTYPE 3 50133`
     - `TEXTTYPE` is used to map text layer objects.  
     
-- **TEXT Layer**: Specifies the layers in the database from which connectivity extraction text is read.
+- **TEXT Layer**: Specifies the layers in the database from which connectivity extraction text is read.  
 Syntax: `TEXT LAYER <layer>`
 
 - **PORT LAYER TEXT**: For input layout databases, causes text objects on the specified layer(s) in the top-level cell to be read and treated as text ports.  

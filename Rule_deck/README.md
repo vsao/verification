@@ -153,14 +153,13 @@ Syntax: `CONNECT <layer1> <layer2>......<layer N> BY <layer C>`
    
 - **DMACRO**: A MACRO definition is known as DMACRO. MACROS are used to make a sequence of computing instructions available to the programmer as a single program statement.
   - Example:  
+  
 DMACRO getWLRes seed {[
 property l, w
-
 weff = 0.5
 ar   = area(seed)
 w    = 0.5 * (perimeter_coincide(pos,seed) + (perimeter_coincide(neg,seed)))
 l    = ar/w
-
         if (bends(seed) > 0)
         {
         if  (W > L)

@@ -151,7 +151,8 @@ Syntax: `CONNECT <layer1> <layer2>......<layer N> BY <layer C>`
    - `<layer C>` specifies a contact, cut or via layer.
    - Example: `CONNECT p1trm m1trm BY CONT`
    
-- **DMACRO**: A MACRO definition is known as DMACRO. MACROS are used to make a sequence of computing instructions available to the programmer as a single program statement.
+- **DMACRO**: A MACRO definition is known as DMACRO. MACROS are used to make a sequence of computing instructions available to the programmer as a single program statement.  
+Syntax: DMACRO macro_name[arguments] {SVRF Code}
   - Example:  
   
 DMACRO getWLRes seed {[

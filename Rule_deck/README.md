@@ -136,7 +136,7 @@ Syntax: `LVS BLACK BOX PORT <original_layer> <text_layer> <interconnect_layer>`
    - `interconnect_layer` is a required layer/layer set or a derived layer containing objects that connects to the original layer.
    - Example: `LVS BLACK BOX PORT poly_dg POLY1_TEXT p1trm`
 
-- **RECTANGLES**: Generates an output layer consisting of an array of rectangles with the specified dimensions and spacing.
+- **RECTANGLES**: Generates an output layer consisting of an array of rectangles with the specified dimensions and spacing.  
 Syntax: `RECTANGLES <width length> <spacing> <offset> <INSIDE OF LAYER layer> <MAINTAIN SPACING>`  
    - `width length` represents x and y axis of a rectangle.
    - `spacing` represents spacing between rectangles in x and y axis.

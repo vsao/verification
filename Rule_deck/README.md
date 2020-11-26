@@ -123,11 +123,16 @@ Syntax: `ATTACH layer1 layer2`
    - `layer1`: A required original layer.
    - `layer2`: A requrired original layer/layout set or derived polygon layer. This layer must appear as an input layer to CONNECT or SCONNECT operations.  
    
-Examples:  
-1. `ATTACH POLY1_TEXT p1trm`
+Example: `ATTACH POLY1_TEXT p1trm`
    - `POLY1_TEXT` : It is poly1 text layer.
-   - `p1trm` : It is derived layer used in Resistor rule file example.
+   - `p1trm` : It is derived layer used in Resistor rule file example.  
+- **LVS BLACK BOX PORT**: Defines port objects for the LVS Box BLACK statement.
+Syntax: `LVS BLACK BOX PORT <original_layer> <text_layer> <interconnect_layer>`
+   - `original _layer` is a required layer/layer set that forms a port for a black box cell.  
+   - `text_layer` is used for naming of ports. Text layer objects must be at the same hierarchical level as the original layer.
+   - `interconnect_layer` is a required layer/layer set or a derived layer containing objects that connects to the original layer.
    
+Example: `LVS BLACK BOX PORT poly_dg POLY1_TEXT p1trm`
 
     
  

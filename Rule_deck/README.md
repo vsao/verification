@@ -154,7 +154,7 @@ Syntax: `CONNECT <layer1> <layer2>......<layer N> BY <layer C>`
 - **DMACRO**: A MACRO definition is known as DMACRO. MACROS are used to make a sequence of computing instructions available to the programmer as a single program statement.  
 Syntax: `DMACRO macro_name[arguments] {SVRF Code}`
   - Example:  
-  
+```bash  
 DMACRO getWLRes seed {[
 property l, w
 weff = 0.5
@@ -169,6 +169,7 @@ l    = ar/w
         l = l - weff*bends(seed) * w
         }
 ]}
+'''
 
 
     

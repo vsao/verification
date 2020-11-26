@@ -114,24 +114,27 @@ Examples:
     - `5013` is the target layer which specifies a layer number to be used by calibre.
 3. `layer MAP 13 TEXTTYPE 3 50133`
     - `TEXTTYPE` is used to map text layer objects.  
+    
 - **TEXT Layer**: Specifies the layers in the database from which connectivity extraction text is read.
-Syntax: `TEXT LAYER <layer>`  
+Syntax: `TEXT LAYER <layer>`
+
 - **PORT LAYER TEXT**: For input layout databases, causes text objects on the specified layer(s) in the top-level cell to be read and treated as text ports.  
-Syntax: `PORT LAYER TEXT <layer>`  
+Syntax: `PORT LAYER TEXT <layer>`
+
 - **ATTACH**: Transfers connectivity information from one layer to another. Used primarily for text label attachment.  
 Syntax: `ATTACH layer1 layer2`
    - `layer1`: A required original layer.
    - `layer2`: A requrired original layer/layout set or derived polygon layer. This layer must appear as an input layer to CONNECT or SCONNECT operations.  
    - Example: `ATTACH POLY1_TEXT p1trm`
      - `POLY1_TEXT` : It is poly1 text layer.
-     - `p1trm` : It is derived layer used in Resistor rule file example.  
+     - `p1trm` : It is derived layer used in Resistor rule file example. 
+     
 - **LVS BLACK BOX PORT**: Defines port objects for the LVS Box BLACK statement.
 Syntax: `LVS BLACK BOX PORT <original_layer> <text_layer> <interconnect_layer>`
    - `original _layer` is a required layer/layer set that forms a port for a black box cell.  
    - `text_layer` is used for naming of ports. Text layer objects must be at the same hierarchical level as the original layer.
    - `interconnect_layer` is a required layer/layer set or a derived layer containing objects that connects to the original layer.
-   
-Example: `LVS BLACK BOX PORT poly_dg POLY1_TEXT p1trm`
+   - Example: `LVS BLACK BOX PORT poly_dg POLY1_TEXT p1trm`
 
 - **RECTANGLES**: Generates an output layer consisting of an array of rectangles with the specified dimensions and spacing.
 Syntax: `RECTANGLES <width length> <spacing> <offset> <INSIDE OF LAYER layer> <MAINTAIN SPACING>`  
@@ -140,6 +143,32 @@ Syntax: `RECTANGLES <width length> <spacing> <offset> <INSIDE OF LAYER layer> <M
    - `offset` is an optional keyword that specifies the horizontal and vertical offsets between adjacent rectangles.
    - `INSIDE OF LAYER layer` Specifies a layer having polygoins to be filled with rectangles.
    - `MAINTAIN SPACING` is an optinal keyword that controls the spacing of rectangles.
+   - Example: `thinmet_fill_all = RECTANGLES 5 2 2 INSIDE OF LAYER (EXTENT)`
+   
+- **CONNECT**: Defines electrical connections on input layers.
+Syntax: `CONNECT <layer1> <layer2>......<layer N> BY <layer C>`  
+   - `<layer1> <layer2>......<layer N>` are required original layers/layer sets or a derived polygon layers.
+   - `<layer C>` specifies a contact, cut or via layer.
+   - Example: `CONNECT p1trm m1trm BY CONT`
+   
+- **DMACRO**: A MACRO definition is known as DMACRO. MACROS are used to make a sequence of computing instructions available to the programmer as a single program statement.
+  - Example:  
+DMACRO getWLRes seed {[
+property l, w
+
+weff = 0.5
+ar   = area(seed)
+w    = 0.5 * (perimeter_coincide(pos,seed) + (perimeter_coincide(neg,seed)))
+l    = ar/w
+
+        if (bends(seed) > 0)
+        {
+        if  (W > L)
+        w = w - weff*bends(seed) * l
+        else
+        l = l - weff*bends(seed) * w
+        }
+]}
 
 
     

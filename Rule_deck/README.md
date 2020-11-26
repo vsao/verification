@@ -176,7 +176,13 @@ l    = ar/w
         }
 ]}
 ```
-  - `getWLRes` is the macro name.
+  - `getWLRes` is the macro name which is used in the poly-resistor rule file.
+  - `seed` is the argument of the macro.  
+  
+- **CMACRO**: It is a keyword to invoke a macro.  
+Syntax: `CMACRO macro_name [arguments]`
+   - `macro_name` must match its coresponding DMACRO definition.
+   - `arguments` may be either a name of layer or numeric constant.
 
 
     

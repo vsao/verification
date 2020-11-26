@@ -159,7 +159,7 @@ DMACRO macro_name[arguments]
          SVRF Code
          }
 ````
-  - Example:  
+   - Example:  
 ```bash  
 DMACRO getWLRes seed {[
 property l, w
@@ -176,13 +176,13 @@ l    = ar/w
         }
 ]}
 ```
-  - `getWLRes` is the macro name which is used in the poly-resistor rule file.
-  - `seed` is the argument of the macro.  
+   - `getWLRes` is the macro name which is used in the poly-resistor rule file.
+   - `seed` is the argument of the macro.  
   
 - **CMACRO**: It is a keyword to invoke a macro.  
 Syntax: `CMACRO macro_name [arguments]`
-   - `macro_name` must match its coresponding DMACRO definition.
-   - `arguments` may be either a name of layer or numeric constant.
+    - `macro_name` must match its coresponding DMACRO definition.
+    - `arguments` may be either a name of layer or numeric constant.
 
 
     

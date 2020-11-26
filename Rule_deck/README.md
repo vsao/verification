@@ -145,7 +145,7 @@ Syntax: `RECTANGLES <width length> <spacing> <offset> <INSIDE OF LAYER layer> <M
    - `MAINTAIN SPACING` is an optinal keyword that controls the spacing of rectangles.
    - Example: `thinmet_fill_all = RECTANGLES 5 2 2 INSIDE OF LAYER (EXTENT)`
    
-- **CONNECT**: Defines electrical connections on input layers.
+- **CONNECT**: Defines electrical connections on input layers.  
 Syntax: `CONNECT <layer1> <layer2>......<layer N> BY <layer C>`  
    - `<layer1> <layer2>......<layer N>` are required original layers/layer sets or a derived polygon layers.
    - `<layer C>` specifies a contact, cut or via layer.

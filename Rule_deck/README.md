@@ -235,14 +235,14 @@ l    = (0.5*pr)-(1+(0.5*n))*w
 MACRO statements without bends does not include effect of bends on width and lenght of a Resistor hence l calculation using without bends statements gives some error. For the better picture, error comparison between with bends and without bends statements for a short strip length and a long strip length poly-resistor is carried out.  
 2.3.1 Short Strip length (Serpentine 90 Poly-Resistor with 2 strips)   
 
-  Parameters | Without Bends(u) | With Bends(u) | Error(%) |
+| Parameters | Without Bends(u) | With Bends(u) | Error(%) |
 |------------|------------------|---------------|----------|
 |     l      | 24.52            | 22.52         | 8.88     |
 |     w      | 2                | 2             | 0        |
 
 2.3.2 Long Strip length (Serpentine 90 Poly-Resistor with 2 strips)
 
-  Parameters | Without Bends(u) | With Bends(u) | Error(%) |
+| Parameters | Without Bends(u) | With Bends(u) | Error(%) |
 |------------|------------------|---------------|----------|
 |     l      | 186.39           | 184.39        | 1.08     |
 |     w      | 2                | 2             | 0        |
@@ -255,6 +255,19 @@ Custom Poly-Resistor(rnp1) layout shape is shown below:
 
 ![Custom Poly-Resistor](https://github.com/vsao/verification/blob/main/Rule_deck/poly_res.png)
 
+Number of bends calculation:
+
+| Parameters | Without Bends(u) | With Bends(u) |
+|------------|------------------|---------------|
+|     l      | 4.75878          | 4.75878       |
+|     w      | 6.0825           | 2.51341       |
+
+```bash
+
+l(with bends) = l(without bends) - (0.5*(bends)*w)
+2.51341       = 6.0825 - 0.5*bends*4.75878
+bends         = 1.5
+```
 
 
 

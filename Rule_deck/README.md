@@ -232,7 +232,7 @@ l    = (0.5*pr)-(1+(0.5*n))*w
 ```  
 2.3 Comparison betwwen Mcaro statements: with bends and without bends  
 
-MACRO statements without bends does not include effect of bends on width and lenght of a Resistor hence l calculation using without bends statements gives some erorr. For the better picture, erorr comparison between with bends and without bends statements for a short strip length and a long strip length poly-resistor is carried out.  
+MACRO statements without bends does not include effect of bends on width and lenght of a Resistor hence l calculation using without bends statements gives some error. For the better picture, error comparison between with bends and without bends statements for a short strip length and a long strip length poly-resistor is carried out.  
 2.3.1 Short Strip length (Serpentine 90 Poly-Resistor with 2 strips)   
 
   Parameters | Without Bends(u) | With Bends(u) | Error(%) |
@@ -249,6 +249,10 @@ MACRO statements without bends does not include effect of bends on width and len
 
     
  Here, we can conclude that error decreases by increasing the strip length of a resistor.
+ 
+ ## Cutom Resistor Layout Design and Rule file
+Custom Poly-Resistor(rnp1) layout shape is shown below:  
+
  
 
 

@@ -188,8 +188,8 @@ Syntax: `CMACRO macro_name [arguments]`
 
 This section shows the different ways to write MACRO statements. It includes macro statements to calculate W & L of a Resistor. Some inbuilt functions such as bends(), perimeter(), area(), perimeter_coincide() are used here.  
 
-- `bends`: Returns the total bends in the shapes of the specified pin or layer. The result is expressed in units of right angles.
-Syntax: BENDS(pin_or_layer)
+- `bends`: Returns the total bends in the shapes of the specified pin or layer. The result is expressed in units of right angles.  
+Syntax: BENDS(pin_or_layer)  
 Bends calculatio Method: Bends value can be calculated by summing the angle in degrees, by which the perimeter changes direction at all concave vertices and dividing by 90 to convert to units of right angle bends.
 
 ![Bends](https://github.com/vsao/verification/blob/main/Rule_deck/bends.png)

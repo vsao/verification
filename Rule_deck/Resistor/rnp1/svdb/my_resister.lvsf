@@ -1,0 +1,25 @@
+# Automagically generated file: Please do not edit!
+lvs_LvsOutFile RUNDIR /home/NIS/projects/XT018-19/A0/work/tt18-vsao/verification/Rule_deck/Resistor/rnp1
+lvs_LvsfVersion 4
+lvs_LvsInputSummary {0 0 0}
+lvs_LvsComparisonSummary {3 0 0 0}
+lvs_SourceCase NO
+lvs_LayoutCase NO
+lvs_PowerName VDD?
+lvs_PowerName DVDD
+lvs_PowerName VCC
+lvs_PowerName VDDA
+lvs_PowerName VDDB
+lvs_PowerName ADVDD
+lvs_PowerName VDDM
+lvs_GroundName GND?
+lvs_GroundName DVSS
+lvs_GroundName VSS
+lvs_GroundName GROUND
+lvs_GroundName AGND
+lvs_GroundName DGND
+lvs_GroundName VSSM
+lvs_LvsOutFile LVS_REPORT my_resister.lvs.report
+lvs_LvsOutFile SOURCE_NETLIST /home/NIS/projects/XT018-19/A0/work/tt18-vsao/verification/Rule_deck/Resistor/rnp1/my_resister.src.net
+lvs_LvsOutFile RULES_FILE inputregrule
+lvs_LvsRunTimes 1606908537 1606908537

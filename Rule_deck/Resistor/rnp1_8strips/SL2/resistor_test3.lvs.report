@@ -1,0 +1,193 @@
+
+
+
+                  ##################################################
+                  ##                                              ##
+                  ##         C A L I B R E    S Y S T E M         ##
+                  ##                                              ##
+                  ##             L V S   R E P O R T              ##
+                  ##                                              ##
+                  ##################################################
+
+
+
+REPORT FILE NAME:         resistor_test3.lvs.report
+LAYOUT NAME:              resistor_test3.lvs.report.sp ('resistor_test3')
+SOURCE NAME:              /home/NIS/projects/XT018-19/A0/work/tt18-vsao/verification/Rule_deck/Resistor/rnp1_8strips/SL2/resistor_test3.src.net ('resistor_test3')
+RULE FILE:                inputregrule
+RULE FILE TITLE:          XT018_1243 Calibre DRC/LVS File : LP5MOS / MET4 / METMID / METTHK
+CREATION TIME:            Wed Dec  2 17:05:12 2020
+CURRENT DIRECTORY:        /home/NIS/projects/XT018-19/A0/work/tt18-vsao/verification/Rule_deck/Resistor/rnp1_8strips/SL2
+USER NAME:                vsao
+CALIBRE VERSION:          v2020.2_14.12    Thu Apr 2 15:39:27 PDT 2020
+
+
+
+                               OVERALL COMPARISON RESULTS
+
+
+
+                         #       ###################       _   _   
+                        #        #                 #       *   *   
+                   #   #         #     CORRECT     #         |     
+                    # #          #                 #       \___/  
+                     #           ###################               
+
+
+
+
+**************************************************************************************************************
+                                      CELL  SUMMARY
+**************************************************************************************************************
+
+  Result         Layout                        Source
+  -----------    -----------                   --------------
+  CORRECT        resistor_test3                resistor_test3
+
+
+
+**************************************************************************************************************
+                                      LVS PARAMETERS
+**************************************************************************************************************
+
+
+o LVS Setup:
+
+   LVS COMPONENT TYPE PROPERTY            LVS_TYPE
+   LVS COMPONENT SUBTYPE PROPERTY         LVS_SUBTYPE
+   LVS PIN NAME PROPERTY                  PHY_PIN PIN
+   LVS POWER NAME                         "VDD?" "DVDD" "VCC" "VDDA" "VDDB" "ADVDD" "VDDM"
+   LVS GROUND NAME                        "GND?" "DVSS" "VSS" "GROUND" "AGND" "DGND" "VSSM"
+   LVS CELL SUPPLY                        NO
+   LVS RECOGNIZE GATES                    ALL
+   // LVS HCELL REPORT
+   LVS IGNORE PORTS                       NO
+   LVS CHECK PORT NAMES                   YES
+   LVS IGNORE TRIVIAL NAMED PORTS         NO
+   LVS BUILTIN DEVICE PIN SWAP            YES
+   LVS ALL CAPACITOR PINS SWAPPABLE       NO
+   LVS DISCARD PINS BY DEVICE             NO
+   LVS SOFT SUBSTRATE PINS                NO
+   LVS INJECT LOGIC                       NO
+   LVS EXPAND UNBALANCED CELLS            YES
+   LVS FLATTEN INSIDE CELL                NO
+   LVS EXPAND SEED PROMOTIONS             NO
+   LVS PRESERVE PARAMETERIZED CELLS       NO
+   LVS GLOBALS ARE PORTS                  YES
+   LVS REVERSE WL                         NO
+   LVS SPICE PREFER PINS                  NO
+   LVS SPICE SLASH IS SPACE               YES
+   LVS SPICE ALLOW FLOATING PINS          YES
+   // LVS SPICE ALLOW INLINE PARAMETERS     
+   LVS SPICE ALLOW UNQUOTED STRINGS       NO
+   LVS SPICE CONDITIONAL LDD              NO
+   LVS SPICE CULL PRIMITIVE SUBCIRCUITS   NO
+   // LVS SPICE EXCLUDE CELL SOURCE
+   // LVS SPICE EXCLUDE CELL LAYOUT
+   LVS SPICE IMPLIED MOS AREA             NO
+   LVS SPICE MULTIPLIER NAME              "M"
+   LVS SPICE OVERRIDE GLOBALS             NO
+   LVS SPICE REDEFINE PARAM               NO
+   LVS SPICE REPLICATE DEVICES            YES
+   LVS SPICE SCALE X PARAMETERS           NO
+   LVS SPICE STRICT WL                    NO
+   // LVS SPICE OPTION
+   LVS STRICT SUBTYPES                    NO
+   LVS EXACT SUBTYPES                     NO
+   LAYOUT CASE                            NO
+   SOURCE CASE                            NO
+   LVS COMPARE CASE                       NO
+   LVS COMPARE CASE STRICT                NO
+   LVS DOWNCASE DEVICE                    NO
+   LVS REPORT MAXIMUM                     50
+   LVS PROPERTY RESOLUTION MAXIMUM        1000
+   // LVS SIGNATURE MAXIMUM
+   // LVS FILTER UNUSED OPTION
+   // LVS REPORT OPTION
+   LVS REPORT UNITS                       YES
+   // LVS NON USER NAME PORT
+   // LVS NON USER NAME NET
+   // LVS NON USER NAME INSTANCE
+   // LVS IGNORE DEVICE PIN
+   // LVS PREFER NETS FILTER SOURCE
+   // LVS PREFER NETS FILTER LAYOUT
+   LVS PREFER PORT NETS                   NO
+
+   // Reduction
+
+   LVS REDUCE SERIES MOS                  NO
+   LVS REDUCE PARALLEL MOS                YES
+   LVS REDUCE SEMI SERIES MOS             NO
+   LVS REDUCE SPLIT GATES                 NO
+   LVS REDUCE PARALLEL BIPOLAR            NO
+   LVS REDUCE SERIES CAPACITORS           NO
+   LVS REDUCE PARALLEL CAPACITORS         NO
+   LVS REDUCE SERIES RESISTORS            NO
+   LVS REDUCE PARALLEL RESISTORS          NO
+   LVS REDUCE PARALLEL DIODES             YES
+   LVS REDUCTION PRIORITY                 PARALLEL
+   
+   LVS SHORT EQUIVALENT NODES             NO
+
+
+
+                   CELL COMPARISON RESULTS ( TOP LEVEL )
+
+
+
+                         #       ###################       _   _   
+                        #        #                 #       *   *   
+                   #   #         #     CORRECT     #         |     
+                    # #          #                 #       \___/  
+                     #           ###################               
+
+
+
+LAYOUT CELL NAME:         resistor_test3
+SOURCE CELL NAME:         resistor_test3
+
+--------------------------------------------------------------------------------------------------------------
+
+NUMBERS OF OBJECTS
+------------------
+
+                Layout    Source         Component Type
+                ------    ------         --------------
+ Ports:              2         2
+
+ Nets:               2         2
+
+ Instances:          1         1         R (2 pins)
+                ------    ------
+ Total Inst:         1         1
+
+
+
+**************************************************************************************************************
+                               INFORMATION AND WARNINGS
+**************************************************************************************************************
+
+
+                  Matched    Matched    Unmatched    Unmatched    Component
+                   Layout     Source       Layout       Source    Type
+                  -------    -------    ---------    ---------    ---------
+   Ports:               2          2            0            0
+
+   Nets:                2          2            0            0
+
+   Instances:           1          1            0            0    R(RNP1)
+                  -------    -------    ---------    ---------
+   Total Inst:          1          1            0            0
+
+
+o Initial Correspondence Points:
+
+   Ports:        T1 T2
+
+
+**************************************************************************************************************
+                                         SUMMARY
+**************************************************************************************************************
+
+Total CPU Time:      0 sec
+Total Elapsed Time:  0 sec

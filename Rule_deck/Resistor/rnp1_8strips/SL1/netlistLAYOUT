@@ -1,0 +1,10 @@
+** CALIBRE LAYOUT NETLIST **
+** CALIBRE VERSION: v2020.2_14.12    Thu Apr 2 15:39:27 PDT 2020
+** LAYOUT NAME: resistor_8strip.calibre.db (resistor_8strip)
+** NETLIST FILE: netlistLAYOUT
+** GENERATED: Wed Dec  2 17:03:45 2020
+
+
+.SUBCKT resistor_8strip T1 T2 
+RR0 T1 T2 RNP1 
+.ENDS

@@ -1,0 +1,10 @@
+** CALIBRE LAYOUT NETLIST **
+** CALIBRE VERSION: v2020.2_14.12    Thu Apr 2 15:39:27 PDT 2020
+** LAYOUT NAME: my_resister.calibre.db (my_resister)
+** NETLIST FILE: netlistLAYOUT
+** GENERATED: Wed Dec  2 16:58:57 2020
+
+
+.SUBCKT my_resister T2 T1 
+RR0 T2 T1 RNP1 
+.ENDS

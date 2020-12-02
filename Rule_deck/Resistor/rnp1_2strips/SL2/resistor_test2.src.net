@@ -1,0 +1,27 @@
+* SPICE export by:      S-Edit 2020.1.4
+* Export time:          Sat Nov 28 14:28:06 2020
+* Design path:          /home/NIS/projects/XT018-19/A0/work/tt18-vsao/lib.defs
+* Library:              my_lib
+* Cell:                 resistor_test2
+* Testbench:            Spice
+* View:                 schematic
+* Export as:            subcircuit definition
+* Export mode:          hierarchical
+* Exclude empty:        no
+* Exclude .model:       no
+* Exclude .hdl:         no
+* Exclude .end:         no
+* Expand paths:         no
+* Wrap lines:           no
+* Exclude simulator commands:  no
+* Exclude global pins:         no
+* Exclude instance locations:  no
+* Control property name(s):    CDL
+
+*************** Subcircuits ***************
+.subckt resistor_test2 t1 t2 
+RR1 t1 t2 30000.7 $[rnp1] $w=2e-06 $l=0.00018439 m=1 $ $x=1520 $y=690 $w=60 $h=20 $r=270
+.ends
+
+
+

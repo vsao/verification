@@ -1,0 +1,10 @@
+** CALIBRE SOURCE NETLIST **
+** CALIBRE VERSION: v2020.2_14.12    Thu Apr 2 15:39:27 PDT 2020
+** SOURCE NAME: /home/NIS/projects/XT018-19/A0/work/tt18-vsao/verification/Rule_deck/Resistor/rnp1_2strips/SL1/resistor_test.src.net (resistor_test)
+** NETLIST FILE: netlistSOURCE
+** GENERATED: Wed Dec  2 17:00:52 2020
+
+
+.SUBCKT resistor_test T1 T2 
+RRR1 T1 T2 RNP1 
+.ENDS

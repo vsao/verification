@@ -128,10 +128,18 @@ DEVICE R(rnp1)      rnp1_1     p1trm   p1trm         NETLIST ELEMENT XR CMACRO g
 DMACRO getWLRes seed {[
 property l, w
 
-pr   = perimeter(seed)
-w    = 0.5 * (perimeter_coincide(pos,seed) + perimeter_coincide(neg,seed))
-l    = 0.5 * (pr-(2*w))
+weff = 0.5
+ar   = area(seed)
+w    = 0.5 * (perimeter_coincide(pos,seed) + (perimeter_coincide(neg,seed)))
+l    = ar/w
 
+        if (bends(seed) > 0)
+        {
+        if  (W > L)
+        w = w - weff*bends(seed) * l
+        else
+        l = l - weff*bends(seed) * w
+        }
 ]}
 
 

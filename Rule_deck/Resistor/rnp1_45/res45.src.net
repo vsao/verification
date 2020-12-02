@@ -1,0 +1,27 @@
+* SPICE export by:      S-Edit 2020.1.4
+* Export time:          Wed Dec  2 11:36:33 2020
+* Design path:          /home/NIS/projects/XT018-19/A0/work/tt18-vsao/lib.defs
+* Library:              my_lib
+* Cell:                 res45
+* Testbench:            Spice
+* View:                 schematic
+* Export as:            subcircuit definition
+* Export mode:          hierarchical
+* Exclude empty:        no
+* Exclude .model:       no
+* Exclude .hdl:         no
+* Exclude .end:         no
+* Expand paths:         no
+* Wrap lines:           no
+* Exclude simulator commands:  no
+* Exclude global pins:         no
+* Exclude instance locations:  no
+* Control property name(s):    CDL
+
+*************** Subcircuits ***************
+.subckt res45 t1 t2 
+RC1 t1 t2 3638.59 $[rnp1] $w=2e-06 $l=2.19653e-05 m=1 $ $x=1570 $y=590 $w=60 $h=20 $r=270
+.ends
+
+
+

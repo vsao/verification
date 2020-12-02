@@ -252,6 +252,8 @@ MACRO statements without bends does not include effect of bends on width and len
  
  ## Cutom Resistor Layout Design and Rule file
 Custom Poly-Resistor(rnp1) layout shape is shown below:  
+![Custom Poly-Resistor](https://github.com/vsao/verification/blob/main/Rule_deck/poly_res.png)
+
 
  
 

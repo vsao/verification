@@ -269,7 +269,7 @@ l(with bends) = l(without bends) - (0.5*(bends)*w)
 2.51341       = 6.0825 - 0.5*bends*4.75878
 bends         = 1.5
 ```
-- Serpentine Poly-resistor: To verify the bends calculation method sepentine 45 resistor is taken into account.  
+- Serpentine 45 Poly-resistor: To verify the bends calculation method sepentine 45 resistor is taken into account.  
   - Layout shape is shown below:  
   
   ![Serpentine 45 Poly-Resistor](https://github.com/vsao/verification/blob/main/Rule_deck/res45.png)

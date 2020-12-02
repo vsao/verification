@@ -112,25 +112,152 @@ Examples:
     - `DATATYPE` is used to map drawn gerometric layers.
     - `0` is the source type that specifies particular datatype.
     - `5013` is the target layer which specifies a layer number to be used by calibre.
-3. `layer MAP 13 TEXTTYPE` 3 50133
+3. `layer MAP 13 TEXTTYPE 3 50133`
     - `TEXTTYPE` is used to map text layer objects.  
-- **TEXT Layer**: Specifies the layers in the database from which connectivity extraction text is read.
-Syntax: `TEXT LAYER <layer>`  
+    
+- **TEXT Layer**: Specifies the layers in the database from which connectivity extraction text is read.  
+Syntax: `TEXT LAYER <layer>`
+
 - **PORT LAYER TEXT**: For input layout databases, causes text objects on the specified layer(s) in the top-level cell to be read and treated as text ports.  
-Syntax: `PORT LAYER TEXT <layer>`  
+Syntax: `PORT LAYER TEXT <layer>`
+
 - **ATTACH**: Transfers connectivity information from one layer to another. Used primarily for text label attachment.  
 Syntax: `ATTACH layer1 layer2`
    - `layer1`: A required original layer.
    - `layer2`: A requrired original layer/layout set or derived polygon layer. This layer must appear as an input layer to CONNECT or SCONNECT operations.  
+   - Example: `ATTACH POLY1_TEXT p1trm`
+     - `POLY1_TEXT` : It is poly1 text layer.
+     - `p1trm` : It is derived layer used in Resistor rule file example. 
+     
+- **LVS BLACK BOX PORT**: Defines port objects for the LVS Box BLACK statement.
+Syntax: `LVS BLACK BOX PORT <original_layer> <text_layer> <interconnect_layer>`
+   - `original _layer` is a required layer/layer set that forms a port for a black box cell.  
+   - `text_layer` is used for naming of ports. Text layer objects must be at the same hierarchical level as the original layer.
+   - `interconnect_layer` is a required layer/layer set or a derived layer containing objects that connects to the original layer.
+   - Example: `LVS BLACK BOX PORT poly_dg POLY1_TEXT p1trm`
+
+- **RECTANGLES**: Generates an output layer consisting of an array of rectangles with the specified dimensions and spacing.  
+Syntax: `RECTANGLES <width length> <spacing> <offset> <INSIDE OF LAYER layer> <MAINTAIN SPACING>`  
+   - `width length` represents x and y axis of a rectangle.
+   - `spacing` represents spacing between rectangles in x and y axis.
+   - `offset` is an optional keyword that specifies the horizontal and vertical offsets between adjacent rectangles.
+   - `INSIDE OF LAYER layer` Specifies a layer having polygoins to be filled with rectangles.
+   - `MAINTAIN SPACING` is an optinal keyword that controls the spacing of rectangles.
+   - Example: `thinmet_fill_all = RECTANGLES 5 2 2 INSIDE OF LAYER (EXTENT)`
    
-Examples:  
-1. `ATTACH POLY1_TEXT p1trm`
-   - `POLY1_TEXT` : It is poly1 text layer.
-   - `p1trm` : It is derived layer used in Resistor rule file example.
+- **CONNECT**: Defines electrical connections on input layers.  
+Syntax: `CONNECT <layer1> <layer2>......<layer N> BY <layer C>`  
+   - `<layer1> <layer2>......<layer N>` are required original layers/layer sets or a derived polygon layers.
+   - `<layer C>` specifies a contact, cut or via layer.
+   - Example: `CONNECT p1trm m1trm BY CONT`
    
+- **DMACRO**: A MACRO definition is known as DMACRO. MACROS are used to make a sequence of computing instructions available to the programmer as a single program statement.  
+Syntax:   `
+```bash
+DMACRO macro_name[arguments]
+         {
+         SVRF Code
+         }
+```
+   - Example:  
+```bash  
+DMACRO getWLRes seed {[
+property l, w
+weff = 0.5
+ar   = area(seed)
+w    = 0.5 * (perimeter_coincide(pos,seed) + (perimeter_coincide(neg,seed)))
+l    = ar/w
+        if (bends(seed) > 0)
+        {
+        if  (W > L)
+        w = w - weff*bends(seed) * l
+        else
+        l = l - weff*bends(seed) * w
+        }
+]}
+```
+   - `getWLRes` is the macro name which is used in the poly-resistor rule file.
+   - `seed` is the argument of the macro.  
+  
+- **CMACRO**: It is a keyword to invoke a macro.  
+Syntax: `CMACRO macro_name [arguments]`
+   - `macro_name` must match its coresponding DMACRO definition.
+   - `arguments` may be either a name of layer or numeric constant.
+   
+## **Writing MACRO Statements**
+
+This section shows the different ways to write MACRO statements. It includes macro statements to calculate W & L of a Resistor. Some inbuilt functions such as bends(), perimeter(), area(), perimeter_coincide() are used here.  
+
+- `bends`: Returns the total bends in the shapes of the specified pin or layer. The result is expressed in units of right angles.Bends value can be calculated by summing the angle in degrees, by which the perimeter changes direction at all concave vertices and dividing by 90 to convert to units of right angle bends.    
+Syntax: `BENDS(pin_or_layer)`  
+![Bends](https://github.com/vsao/verification/blob/main/Rule_deck/bends.png)
+
+- `perimeter` : Returns the total length of the perimeter of the shapes for the specified pin or layer.  
+Syntax: `PERIMETER(pin_or_layer)`    
+
+- `area` : Returns the total area of shapes that are part of the specified pin or layer.  
+Syntax: `AREA(pin_or_layer)`  
+
+- `perimeter_coincide` : Returns the total length of the parts of perimeters on the first pin or layer that coincide with the perimeter of the second pin or layer.  
+Syntax: `PERIMETER_COINSIDE(pin_or_layer, pin_or_layer)`  
+
+1. Macro Staement for a rectangular Poly-Resistor   
+```bash  
+DMACRO getWLRes seed {[
+property l, w
+pr   = perimeter(seed)
+w    = 0.5 * (perimeter_coincide(pos,seed) + (perimeter_coincide(neg,seed)))
+l    = (pr-2w)/2
+]}
+```  
+2. Macro Statment for Serpentaine 90 Poly-Resistor    
+2.1 Without Bends  
+```bash  
+DMACRO getWLRes seed {[
+property l, w
+pr   = perimeter(seed)
+w    = 0.5 * (perimeter_coincide(pos,seed) + (perimeter_coincide(neg,seed)))
+l    = (pr-2w)/2
+]}
+```  
+2.2 With Bends  
+```bash  
+DMACRO getWLRes seed {[
+property l, w
+n    = bends(seed)
+pr   = perimeter(seed)
+w    = 0.5 * (perimeter_coincide(pos,seed) + (perimeter_coincide(neg,seed)))
+l    = (0.5*pr)-(1+(0.5*n))*w
+]}  
+```  
+2.3 Comparison betwwen Mcaro statements: with bends and without bends  
+
+MACRO statements without bends does not include effect of bends on width and lenght of a Resistor hence l calculation using without bends statements gives some error. For the better picture, error comparison between with bends and without bends statements for a short strip length and a long strip length poly-resistor is carried out.  
+2.3.1 Short Strip length (Serpentine 90 Poly-Resistor with 2 strips)   
+
+  Parameters | Without Bends(u) | With Bends(u) | Error(%) |
+|------------|------------------|---------------|----------|
+|     l      | 24.52            | 22.52         | 8.88     |
+|     w      | 2                | 2             | 0        |
+
+2.3.2 Long Strip length (Serpentine 90 Poly-Resistor with 2 strips)
+
+  Parameters | Without Bends(u) | With Bends(u) | Error(%) |
+|------------|------------------|---------------|----------|
+|     l      | 186.39           | 184.39        | 1.08     |
+|     w      | 2                | 2             | 0        |
 
     
+ Here, we can conclude that error decreases by increasing the strip length of a resistor.
  
+ ## Cutom Resistor Layout Design and Rule file
+Custom Poly-Resistor(rnp1) layout shape is shown below:  
+
+![Custom Poly-Resistor](https://github.com/vsao/verification/blob/main/Rule_deck/poly_res.png)
+
+
+
+
  
 
 

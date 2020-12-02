@@ -253,9 +253,9 @@ MACRO statements without bends does not include effect of bends on width and len
  ## Number of bends calculation
 - Custom Poly-Resistor(rnp1)
   - Layout shape is shown below:  
-
-![Custom Poly-Resistor](https://github.com/vsao/verification/blob/main/Rule_deck/poly_res.png)
-
+  
+  ![Custom Poly-Resistor](https://github.com/vsao/verification/blob/main/Rule_deck/poly_res.png)
+  
   - Number of bends calculation: Area Macro is used to calculate w and l of resistor for both the cases: `with bends` and `without beds`.
 
 | Parameters | Without Bends(u) | With Bends(u) |

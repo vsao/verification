@@ -183,7 +183,43 @@ l    = ar/w
 Syntax: `CMACRO macro_name [arguments]`
    - `macro_name` must match its coresponding DMACRO definition.
    - `arguments` may be either a name of layer or numeric constant.
+   
+## **Writing MACRO Statements**
 
+This section shows the different ways to write MACRO statements. It includes macro statements to calculate W & L of a Resistor. Some inbuilt functions such as bends(), perimeter(), area(), perimeter_coincide() are used here.  
+
+1. Macro Staement for a rectangular Poly-Resistor   
+```bash  
+DMACRO getWLRes seed {[
+property l, w
+pr   = perimeter(seed)
+w    = 0.5 * (perimeter_coincide(pos,seed) + (perimeter_coincide(neg,seed)))
+l    = (pr-2w)/2
+]}
+```  
+2. Macro Statment for Serpentaine 90 Poly-Resistor    
+2.1 Without Bends  
+```bash  
+DMACRO getWLRes seed {[
+property l, w
+pr   = perimeter(seed)
+w    = 0.5 * (perimeter_coincide(pos,seed) + (perimeter_coincide(neg,seed)))
+l    = (pr-2w)/2
+]}
+```  
+2.2 With Bends  
+```bash  
+DMACRO getWLRes seed {[
+property l, w
+n    = bends(seed)
+pr   = perimeter(seed)
+w    = 0.5 * (perimeter_coincide(pos,seed) + (perimeter_coincide(neg,seed)))
+l    = (0.5*pr)-(1+(0.5*n))*w
+]}  
+```  
+2.3 Comparison betwwen Mcaro statements: with bends and without bends  
+
+MACRO statements without bends does not include effect of bends on width and lenght of a Resistor hence l calculation using without bends statements gives some erorr.
 
     
  

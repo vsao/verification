@@ -250,12 +250,13 @@ MACRO statements without bends does not include effect of bends on width and len
     
  Here, we can conclude that error decreases by increasing the strip length of a resistor.
  
- ## Cutom Resistor(rnp1)
-- Custom Poly-Resistor(rnp1) layout shape is shown below:  
-
-![Custom Poly-Resistor](https://github.com/vsao/verification/blob/main/Rule_deck/poly_res.png)
-
-- Number of bends calculation: Area Macro is used to calculate w and l of resistor for both the cases: `with bends` and `without beds`.
+ ## Number of bends calculation
+- Custom Poly-Resistor(rnp1)
+  - Layout shape is shown below:  
+  
+  ![Custom Poly-Resistor](https://github.com/vsao/verification/blob/main/Rule_deck/poly_res.png)
+  
+  - Number of bends calculation: Area Macro is used to calculate w and l of resistor for both the cases: `with bends` and `without beds`.
 
 | Parameters | Without Bends(u) | With Bends(u) |
 |------------|------------------|---------------|
@@ -268,8 +269,24 @@ l(with bends) = l(without bends) - (0.5*(bends)*w)
 2.51341       = 6.0825 - 0.5*bends*4.75878
 bends         = 1.5
 ```
+- Serpentine 45 Poly-resistor: To verify the bends calculation method sepentine 45 resistor is taken into account.  
+  - Layout shape is shown below:  
+  
+  ![Serpentine 45 Poly-Resistor](https://github.com/vsao/verification/blob/main/Rule_deck/res45.png)
+  
+  - Number of bends calculation: Area Macro is used to calculate w and l of resistor for both the cases: `with bends` and `without beds`.
 
+| Parameters | Without Bends(u) | With Bends(u) |
+|------------|------------------|---------------|
+|     l      | 23.9774          | 21.9774       |
+|     w      | 2                | 2             |
 
+```bash
+
+l(with bends) = l(without bends) - (0.5*(bends)*w)
+21.9774       = 23.9774 - 0.5*bends*2
+bends         = 2
+```
 
  
 

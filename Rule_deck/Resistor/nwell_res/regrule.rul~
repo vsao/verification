@@ -1,0 +1,95 @@
+//------------------------------------------------------------
+//            INPUT-LAYERS
+//------------------------------------------------------------
+
+LAYER MAP   3     DATATYPE  0 50030
+LAYER diff_dg     50030                                                 // DF, Active Area
+LAYER MAP   2     DATATYPE  0 50020     LAYER nwell       50020         // NW, N-well
+LAYER MAP   7     DATATYPE  0 50070     LAYER pimp        50070         // IP, P+ Implant
+LAYER MAP   8     DATATYPE  0 50080     LAYER nimp        50080         // IN, N+ Implant
+LAYER MAP  15     DATATYPE  0 50150     LAYER cont        50150         // CT, Contact
+LAYER MAP  16     DATATYPE  0 50160
+LAYER MAP  16     DATATYPE  9 50169
+LAYER met1_dg     50160 50169                                           // M1, Metal1
+LAYER MAP   2     DATATYPE  5 50025	LAYER nwres       50025         // NW, N-well Resistor Definition
+LAYER MAP   2     TEXTTYPE  5 50025     LAYER nwres_label 50025
+
+
+
+//LVS TEXT LAYER
+LAYER MAP   16    TEXTTYPE  3 50163	LAYER MET1_TEXT   50163
+
+
+TEXT LAYER      MET1_TEXT nwres_label
+PORT LAYER TEXT MET1_TEXT nwres_label 
+
+ATTACH MET1_TEXT    m1trm
+ATTACH nwres_label  nwtrm
+
+//------------------------------------------------------------
+//            Layer Definitions
+//------------------------------------------------------------
+
+diff = copy diff_dg                        //Diffusion definition
+
+met1 = copy met1_dg                       // Metal1 definition
+
+m1trm = copy met1                        // Metal1 text layer definition
+
+rnw = nwres AND nwell                   //rnw definition
+
+nwtrm = nwell NOT rnw                  // rnw nets definition
+
+      
+
+bkgnd1 = EXTENT
+bkgnd = SIZE bkgnd1 BY 1.0
+bulk = bkgnd CUT (diff_dg OR nwell)
+
+
+ndiff = diff AND nimp
+pdiff = diff AND pimp
+
+ptap = pdiff NOT nwell
+
+ntap = ndiff AND nwell
+
+//------------------------------------------------------------
+//            Layer Connections
+//------------------------------------------------------------
+
+CONNECT  m1trm pdiff ndiff BY cont
+
+SCONNECT ndiff nwtrm BY ntap
+SCONNECT pdiff bulk BY ptap
+
+
+//............................................................
+//            Device Definitions
+//............................................................
+
+DEVICE R(rnw)       rnw        nwtrm   nwtrm  BULK  		     NETLIST ELEMENT XR CMACRO getWLRes rnw
+
+
+//............................................................
+//            Macro definitions
+//............................................................
+
+DMACRO getWLRes seed {[
+property l, w
+
+weff = 0.5
+ar   = area(seed)
+w    = 0.5 * (perimeter_coincide(pos,seed) + (perimeter_coincide(neg,seed)))
+l    = ar/w
+
+        if (bends(seed) > 0)
+        {
+        if  (W > L)
+        w = w - weff*bends(seed) * l
+        else
+        l = l - weff*bends(seed) * w
+        }
+]}
+
+

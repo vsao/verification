@@ -1,0 +1,169 @@
+//------------------------------------------------------------
+//             Setup Environment
+//------------------------------------------------------------
+
+PRECISION  1000
+RESOLUTION 5
+
+UNIT CAPACITANCE FF
+UNIT LENGTH      U
+UNIT RESISTANCE  OHM
+
+MASK RESULTS DATABASE "mask.db"
+FLAG OFFGRID YES
+FLAG ACUTE YES 
+FLAG SKEW YES
+FLAG NONSIMPLE YES
+FLAG NONSIMPLE PATH YES
+
+TEXT DEPTH PRIMARY
+
+LAYOUT PROCESS BOX RECORD YES
+
+//------------------------------------------------------------
+//         Setup Defaults for LVS
+//------------------------------------------------------------
+
+//MASK SVDB DIRECTORY svdb XCALIBRE
+
+LVS REPORT                       "lvs.rep"
+LVS REPORT OPTION                S
+LVS POWER NAME                   VDD? DVDD VCC VDDA VDDB ADVDD VDDM
+LVS GROUND NAME                  GND? DVSS VSS GROUND AGND DGND VSSM
+LVS ABORT ON SUPPLY ERROR        NO
+LVS ALL CAPACITOR PINS SWAPPABLE NO
+LVS PIN NAME PROPERTY PHY_PIN    PIN
+LVS COMPONENT SUBTYPE PROPERTY   LVS_SUBTYPE
+LVS COMPONENT TYPE PROPERTY      LVS_TYPE
+LVS FILTER UNUSED BIPOLAR        NO
+LVS FILTER UNUSED MOS            NO
+LVS FILTER UNUSED RESISTORS      NO
+LVS FILTER UNUSED DIODES         NO
+LVS FILTER UNUSED CAPACITORS     NO
+LVS IGNORE PORTS                 NO
+LVS RECOGNIZE GATES              NONE
+LVS REDUCE PARALLEL BIPOLAR      NO
+LVS REDUCE PARALLEL CAPACITORS   NO
+LVS REDUCE PARALLEL MOS          YES     [TOLERANCE L 0]
+LVS REDUCE SERIES   MOS          NO
+LVS REDUCE SPLIT    GATES        NO
+LVS REDUCE PARALLEL RESISTORS    NO
+LVS REDUCE SERIES CAPACITORS     NO
+LVS REDUCE SERIES RESISTORS      NO
+LVS REPORT MAXIMUM               100
+LVS PROPERTY RESOLUTION MAXIMUM  1000
+LVS SPICE REPLICATE DEVICES      YES
+LVS SPICE MULTIPLIER NAME       "M"
+LVS INJECT LOGIC                 NO
+LVS CHECK PORT NAMES             YES
+
+LVS WRITE LAYOUT NETLIST         "netlistLAYOUT"
+LVS WRITE SOURCE NETLIST         "netlistSOURCE"
+
+
+//------------------------------------------------------------
+//            INPUT-LAYERS
+//------------------------------------------------------------
+
+LAYER MAP   3     DATATYPE  0 50030
+LAYER diff_dg     50030                                                 // DF, Active Area
+LAYER MAP  13     DATATYPE  0 50130
+LAYER poly_dg     50130                                                 // P1, Poly1
+LAYER MAP   2     DATATYPE  0 50020     LAYER nwell       50020         // NW, N-well
+LAYER MAP   8     DATATYPE  0 50080     LAYER nimp        50080         // IN, N+ Implant
+LAYER MAP   7     DATATYPE  0 50070     LAYER pimp        50070         // IP, P+ Implant
+LAYER MAP  15     DATATYPE  0 50150     LAYER cont        50150         // CT, Contact
+LAYER MAP  16     DATATYPE  0 50160
+LAYER MAP  16     DATATYPE  9 50169
+LAYER met1_dg     50160 50169                                           // M1, Metal1
+LAYER MAP   4     DATATYPE  0 50040     LAYER mvdg        50040         // MV, 5V Gate Oxide
+
+
+
+//LVS TEXT LAYER
+LAYER MAP   13    TEXTTYPE  3 50133		LAYER POLY1_TEXT  50133
+LAYER MAP   16    TEXTTYPE  3 50163		LAYER MET1_TEXT   50163
+
+TEXT LAYER      POLY1_TEXT MET1_TEXT
+PORT LAYER TEXT POLY1_TEXT MET1_TEXT
+
+ATTACH POLY1_TEXT   p1trm
+ATTACH MET1_TEXT    m1trm
+
+
+//------------------------------------------------------------
+//            Layer Definitions
+//------------------------------------------------------------
+
+diff = copy diff_dg                      //Diffusion definition
+
+poly1 = copy poly_dg                    //poly1 definition 
+
+met1 = copy met1_dg                    // Metal1 definition
+
+m1trm = copy met1                     // Metal1 text layer definition
+
+ndiff = diff AND nimp
+pdiff = (diff NOT poly1) AND pimp 
+
+bkgnd1 = EXTENT
+bkgnd  = SIZE bkgnd1 BY 1.0
+bulk   = bkgnd CUT diff_dg             // Bulk definition
+
+pdif2 = diff AND pimp                 // Auxiliary layer definition
+
+p1trm = copy poly1                    // ne gate net definition
+
+nwtrm = nwell NOT pem                 // Bulk net definition
+
+mv = mvdg OR bkgnd                   // mv layer definition
+
+pem = (((diff AND poly1) AND pimp) AND mv) AND nwell   // pe5 device definition
+
+ptap = pdiff NOT nwell
+ntap = ndiff AND nwell
+
+//------------------------------------------------------------
+//            Layer Connections
+//------------------------------------------------------------
+
+CONNECT  m1trm p1trm ndiff pdiff BY cont
+
+SCONNECT ndiff nwtrm BY ntap
+SCONNECT pdiff bulk BY ptap
+
+
+//............................................................
+//            Device Definitions
+//............................................................
+
+DEVICE MP(pe5)   pem   p1trm(G)   pdiff(S)   pdiff(D) nwtrm(B) <pdif2>  NETLIST ELEMENT XM CMACRO getParaMp pem
+
+
+//............................................................
+//            Macro definitions
+//............................................................
+
+
+DMACRO getParaMp seed {[
+property w,l,as,ad,ps,pd
+  W = (perimeter_coincide(S, seed) + perimeter_coincide(D, seed))/2
+  L = AREA(seed) / W
+
+  AS = area(S)
+  AD = area(D)
+  PS = perimeter(S)
+  PD = perimeter(D)
+
+  if (AS > 0) {
+  AS = area(S) * (perimeter_coincide(S, seed) / perimeter_inside(S, pdif2))
+  PS = perimeter(S) * (perimeter_coincide(S, seed) / perimeter_inside(S, pdif2))
+  }
+  if (AD > 0) {
+  AD = area(D) * (perimeter_coincide(D, seed) / perimeter_inside(D, pdif2))
+  PD = perimeter(D) * (perimeter_coincide(D, seed) / perimeter_inside(D, pdif2))
+  }
+]}
+
+
+

@@ -1,0 +1,27 @@
+* SPICE export by:      S-Edit 2020.1.4
+* Export time:          Mon Dec  7 12:50:14 2020
+* Design path:          /home/NIS/projects/XT018-19/A0/work/tt18-vsao/lib.defs
+* Library:              my_lib
+* Cell:                 pe5_test
+* Testbench:            Spice
+* View:                 schematic
+* Export as:            subcircuit definition
+* Export mode:          hierarchical
+* Exclude empty:        no
+* Exclude .model:       no
+* Exclude .hdl:         no
+* Exclude .end:         no
+* Expand paths:         no
+* Wrap lines:           no
+* Exclude simulator commands:  no
+* Exclude global pins:         no
+* Exclude instance locations:  no
+* Control property name(s):    CDL
+
+*************** Subcircuits ***************
+.subckt pe5_test B D G S 
+MC1 D G S B pe5 w=2e-06 l=5e-07 m=1 ad=9.6e-13 as=9.6e-13 pd=4.96e-06 ps=4.96e-06 nrd=0.135 nrs=0.135 $ $x=1460 $y=630 $w=40 $h=60
+.ends
+
+
+

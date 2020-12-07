@@ -1,0 +1,10 @@
+** CALIBRE LAYOUT NETLIST **
+** CALIBRE VERSION: v2020.2_14.12    Thu Apr 2 15:39:27 PDT 2020
+** LAYOUT NAME: pe5_test.calibre.db (pe5_test)
+** NETLIST FILE: netlistLAYOUT
+** GENERATED: Mon Dec  7 15:00:05 2020
+
+
+.SUBCKT pe5_test B S G D 
+MM0 D G S B PE5 l=5e-07 w=2e-06 
+.ENDS

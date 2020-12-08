@@ -203,7 +203,7 @@ Syntax: `AREA(pin_or_layer)`
   
 - Macro statement for a poly resistor
 
-  - Macro Staement for a Poly-Resistor without bends   
+  - Macro Staement for a Poly-Resistor without bends
   ```bash  
   DMACRO getWLRes seed {[
   property l, w
@@ -223,13 +223,16 @@ Syntax: `AREA(pin_or_layer)`
   ]}  
   ```  
   - Comparison betwwen Mcaro statements: with bends and without bends  
-    MACRO statements without bends does not include effect of bends on width and lenght of a Resistor hence l calculation using without bends statements gives         some error. For the better picture, error comparison between with bends and without bends statements for a short strip length and a long strip length poly-       resistor is carried out.  
+  
+    MACRO statements without bends does not include effect of bends on width and lenght of a Resistor hence l calculation using without bends statements gives         some error. For the better picture, error comparison between with bends and without bends statements for a short strip length and a long strip length poly-       resistor is carried out.
+    
     -  Short Strip length (Serpentine 90 Poly-Resistor with 2 strips)   
 
      | Parameters | Without Bends(u) | With Bends(u) | Error(%) |
      |------------|------------------|---------------|----------|
      |     l      | 24.52            | 22.52         | 8.88     |
      |     w      | 2                | 2             | 0        |
+     
 
     - Long Strip length (Serpentine 90 Poly-Resistor with 2 strips)
 

@@ -36,7 +36,7 @@
 All the above input files are put together in a folder. Then the following commands are executed in this path:-
 1. ` calibre -spice my_resister.sp inputregrule` generates the following output file:
 
-## regrul_mod.rul 
+## regrule_mod.rul 
 * Same as `regrule.rul` except macro definition. Here perimeter function is used to get W & L of a resistor insted of area.
 
 ## my_resister.sp

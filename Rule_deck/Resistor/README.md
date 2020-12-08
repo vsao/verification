@@ -7,7 +7,7 @@
 | my_resister.src.net      |   netlist SOURCE             |
 | inputregrule             |   my_resister.sp             |
 | xt018_1243               |   my_resister.lvs.report.ext |
-| my_resister.rul          |   my_resister.lvs.report     |
+| regrule.rul              |   my_resister.lvs.report     |
 |                          |   svdb                       |
 
 ## my_resister.calibre.db 
@@ -29,12 +29,9 @@
 * This is the second rule file where all modules are defined or undefined.
 * It points to t5he third or the main rule file.
 
-## my_resister.rul
+## regrule.rul
 * This is the main file containing all the information rquired to netlist out the layout and perform LVS.
 * It contains a wider rule file view for rnp1.(1st attempt)
-
-## my_resister_final.rul
-* This is the compact rule file required to netlist and perform LVS correctly for rnp1 only.
 
 All the above input files are put together in a folder. Then the following commands are executed in this path:-
 1. ` calibre -spice my_resister.sp rule_file` generates the following output file:

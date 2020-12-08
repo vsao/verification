@@ -231,15 +231,15 @@ Syntax: `AREA(pin_or_layer)`
      |     l      | 24.52            | 22.52         | 8.88     |
      |     w      | 2                | 2             | 0        |
 
-2.3.2 Long Strip length (Serpentine 90 Poly-Resistor with 2 strips)
+    - Long Strip length (Serpentine 90 Poly-Resistor with 2 strips)
 
-| Parameters | Without Bends(u) | With Bends(u) | Error(%) |
-|------------|------------------|---------------|----------|
-|     l      | 186.39           | 184.39        | 1.08     |
-|     w      | 2                | 2             | 0        |
+     | Parameters | Without Bends(u) | With Bends(u) | Error(%) |
+     |------------|------------------|---------------|----------|
+     |     l      | 186.39           | 184.39        | 1.08     |
+     |     w      | 2                | 2             | 0        |
 
     
- Here, we can conclude that error decreases by increasing the strip length of a resistor.
+      Here, we can conclude that error decreases by increasing the strip length of a resistor.
  
  ## Number of bends calculation
 - Custom Poly-Resistor(rnp1)

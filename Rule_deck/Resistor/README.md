@@ -5,7 +5,7 @@
 |--------------------------|------------------------------|
 | my_resister.calibre.db   |   netlist LAYOUT             |
 | my_resister.src.net      |   netlist SOURCE             |
-| rule_file                |   my_resister.sp             |
+| inputrulefile                |   my_resister.sp             |
 | xt018_1243               |   my_resister.lvs.report.ext |
 | my_resister.rul          |   my_resister.lvs.report     |
 |                          |   svdb                       |
@@ -21,7 +21,7 @@
 * This file contains the netlist of the schematic (poly resistor).
 * This is extracted from schematic on running LVS in GUI mode.(Export from schematic view)
 
-## rule_file
+## inputrulefile
 * This is the first rule file containing all the specification statements regarding the source, layout path, lvs and erc report.
 * The file points to the second rule file.
 

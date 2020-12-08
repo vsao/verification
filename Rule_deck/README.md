@@ -159,25 +159,25 @@ Syntax:   `
            SVRF Code
            }
   ```
-   - Example:  
-```bash  
-DMACRO getWLRes seed {[
-property l, w
-weff = 0.5
-ar   = area(seed)
-w    = 0.5 * (perimeter_coincide(pos,seed) + (perimeter_coincide(neg,seed)))
-l    = ar/w
-        if (bends(seed) > 0)
-        {
-        if  (W > L)
-        w = w - weff*bends(seed) * l
-        else
-        l = l - weff*bends(seed) * w
-        }
-]}
-```
-   - `getWLRes` is the macro name which is used in the poly-resistor rule file.
-   - `seed` is the argument of the macro.  
+  Example:  
+  ```bash  
+  DMACRO getWLRes seed {[
+  property l, w
+  weff = 0.5
+  ar   = area(seed)
+  w    = 0.5 * (perimeter_coincide(pos,seed) + (perimeter_coincide(neg,seed)))
+  l    = ar/w
+          if (bends(seed) > 0)
+          {
+          if  (W > L)
+          w = w - weff*bends(seed) * l
+          else
+          l = l - weff*bends(seed) * w
+          }
+  ]}
+  ```
+  - `getWLRes` is the macro name which is used in the poly-resistor rule file.
+  - `seed` is the argument of the macro.  
   
 - **CMACRO**: It is a keyword to invoke a macro.  
 Syntax: `CMACRO macro_name [arguments]`

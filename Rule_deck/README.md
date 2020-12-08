@@ -13,9 +13,9 @@ Calibre nmDRC and Calibre nmLVS require rule file and design database inputs in 
 3. Source Databases 
 
 ### Rule File
-It is a standard Verification Rule Format (SVRF) or Tcl Verification Format(TVF) form. Rule files contain two main categories of commands:  
-1. Specification statements: Such as describing the layout and source databases, and specifying where to store the results of a run.
-2. Layer operations: manipulation of layers through Boolean operations, measurement operations etc.  
+- It is a standard Verification Rule Format (SVRF) or Tcl Verification Format(TVF) form. Rule files contain two main categories of commands:  
+  - Specification statements: Such as describing the layout and source databases, and specifying where to store the results of a run.
+  - Layer operations: manipulation of layers through Boolean operations, measurement operations etc.  
 
 - Rule file that is used while running the lvs in command line is inter-linked with some other DRC/LVS Verification rule files as shown below:  
 

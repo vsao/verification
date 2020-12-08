@@ -57,19 +57,19 @@ calibre -spice cellname.sp rulefile
 calibre -lvs -hier rulefile
 ```
 - For an example lvs comparison of poly-register(rnp1) is shown below:  
-```bash
-calibre -lvs -hier _xt018_1243_
-```
-- ``calibre`` is the calibre executable file.
-- ``-lvs`` command performs the lvs comaprison between spice netlists of schematic and layout.
-- ``-hier`` command performs herarchical lvs comparision.
-- ``_xt018_1243_`` is the rule file.  
+  ```bash
+  calibre -lvs -hier _xt018_1243_
+  ```
+  - ``calibre`` is the calibre executable file.
+  - ``-lvs`` command performs the lvs comaprison between spice netlists of schematic and layout.
+  - ``-hier`` command performs herarchical lvs comparision.
+  - ``_xt018_1243_`` is the rule file.  
 
 - Both spice extraction and lvs comparison can be done using a single command
-```bash
-calibre -spice my_resister.sp -lvs -hier -nowait _xt018_1243_
-```
-- ``-nowait`` command causes Calibre to wait approximately 10 seconds before attempting to acquire substitute licenses.  
+  ```bash
+  calibre -spice my_resister.sp -lvs -hier -nowait _xt018_1243_
+  ```
+  - ``-nowait`` command causes Calibre to wait approximately 10 seconds before attempting to acquire substitute licenses.  
 
 ### Output files
 By running the command for spice extraction and lvs comparison of a poly-resistor we get certain output files:  

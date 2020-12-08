@@ -201,25 +201,25 @@ Syntax: `AREA(pin_or_layer)`
 - `perimeter_coincide` : Returns the total length of the parts of perimeters on the first pin or layer that coincide with the perimeter of the second pin or layer.  
   Syntax: `PERIMETER_COINSIDE(pin_or_layer, pin_or_layer)`  
 
-1. Macro Staement for a rectangular Poly-Resistor   
-```bash  
-DMACRO getWLRes seed {[
-property l, w
-pr   = perimeter(seed)
-w    = 0.5 * (perimeter_coincide(pos,seed) + (perimeter_coincide(neg,seed)))
-l    = (pr-2w)/2
-]}
-```  
-2. Macro Statment for Serpentaine 90 Poly-Resistor    
-2.1 Without Bends  
-```bash  
-DMACRO getWLRes seed {[
-property l, w
-pr   = perimeter(seed)
-w    = 0.5 * (perimeter_coincide(pos,seed) + (perimeter_coincide(neg,seed)))
-l    = (pr-2w)/2
-]}
-```  
+  1. Macro Staement for a rectangular Poly-Resistor   
+  ```bash  
+  DMACRO getWLRes seed {[
+  property l, w
+  pr   = perimeter(seed)
+  w    = 0.5 * (perimeter_coincide(pos,seed) + (perimeter_coincide(neg,seed)))
+  l    = (pr-2w)/2
+  ]}
+  ```  
+  2. Macro Statment for Serpentaine 90 Poly-Resistor    
+     2.1 Without Bends  
+     ```bash  
+     DMACRO getWLRes seed {[
+     property l, w
+     pr   = perimeter(seed)
+     w    = 0.5 * (perimeter_coincide(pos,seed) + (perimeter_coincide(neg,seed)))
+     l    = (pr-2w)/2
+     ]}
+     ```  
 2.2 With Bends  
 ```bash  
 DMACRO getWLRes seed {[

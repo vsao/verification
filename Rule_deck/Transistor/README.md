@@ -1,4 +1,3 @@
-This folder contains two subfolders ne and pe5.
 # Transistor(ne)
 * This folder contains the following subfiles/folders:
 
@@ -9,4 +8,3 @@ This folder contains two subfolders ne and pe5.
 | inputregrule             |   ne_test.sp                 |
 | xt018_1243               |   ne_test.lvs.report.ext     |
 | transrule.rul            |   ne_test.lvs.report         |
-| regrul_mod.rul           |   svdb                       |

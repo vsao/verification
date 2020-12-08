@@ -203,7 +203,7 @@ Syntax: `AREA(pin_or_layer)`
   
 - Macro statement for a poly resistor
 
-  1. Macro Staement for a rectangular Poly-Resistor   
+  1. Macro Staement for a Poly-Resistor without bends   
   ```bash  
   DMACRO getWLRes seed {[
   property l, w
@@ -212,29 +212,18 @@ Syntax: `AREA(pin_or_layer)`
   l    = (pr-2w)/2
   ]}
   ```  
-  2. Macro Statment for Serpentaine 90 Poly-Resistor    
-     2.1 Without Bends  
-     ```bash  
-     DMACRO getWLRes seed {[
-     property l, w
-     pr   = perimeter(seed)
-     w    = 0.5 * (perimeter_coincide(pos,seed) + (perimeter_coincide(neg,seed)))
-     l    = (pr-2w)/2
-     ]}
-     ```  
-2.2 With Bends  
-```bash  
-DMACRO getWLRes seed {[
-property l, w
-n    = bends(seed)
-pr   = perimeter(seed)
-w    = 0.5 * (perimeter_coincide(pos,seed) + (perimeter_coincide(neg,seed)))
-l    = (0.5*pr)-(1+(0.5*n))*w
-]}  
-```  
-2.3 Comparison betwwen Mcaro statements: with bends and without bends  
-
-MACRO statements without bends does not include effect of bends on width and lenght of a Resistor hence l calculation using without bends statements gives some error. For the better picture, error comparison between with bends and without bends statements for a short strip length and a long strip length poly-resistor is carried out.  
+  2. Macro Statment for Poly-Resistor with Bends     
+  ```bash  
+  DMACRO getWLRes seed {[
+  property l, w
+  n    = bends(seed)
+  pr   = perimeter(seed)
+  w    = 0.5 * (perimeter_coincide(pos,seed) + (perimeter_coincide(neg,seed)))
+  l    = (0.5*pr)-(1+(0.5*n))*w
+  ]}  
+  ```  
+  3. Comparison betwwen Mcaro statements: with bends and without bends
+  MACRO statements without bends does not include effect of bends on width and lenght of a Resistor hence l calculation using without bends statements gives some   error. For the better picture, error comparison between with bends and without bends statements for a short strip length and a long strip length poly-resistor is carried out.  
 2.3.1 Short Strip length (Serpentine 90 Poly-Resistor with 2 strips)   
 
 | Parameters | Without Bends(u) | With Bends(u) | Error(%) |

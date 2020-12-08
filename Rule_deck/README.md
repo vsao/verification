@@ -45,9 +45,9 @@ calibre -spice cellname.sp rulefile
 ```
 - For an example spice extraction of poly-resistor(rnp1) is shown below:  
 ```bash
-/CAD/mentor/calibre/2020-2-14-12/aoi_cal_2020.2_14.12/bin/calibre -spice my_resister.sp _xt018_1243_
+calibre -spice my_resister.sp _xt018_1243_
  ```
--   ``/CAD/mentor/calibre/2020-2-14-12/aoi_cal_2020.2_14.12/bin/calibre`` is the path of calibre executable file.
+-   ``calibre``is the calibre executable file.
 -   ``-spice`` command extracts spice netlist from layout file.
 -   ``my_resister.sp`` is the name of the extracted spice file.
 -   ``_xt018_1243_`` is the rule file.  
@@ -58,16 +58,16 @@ calibre -lvs -hier rulefile
 ```
 - For an example lvs comparison of poly-register(rnp1) is shown below:  
 ```bash
-/CAD/mentor/calibre/2020-2-14-12/aoi_cal_2020.2_14.12/bin/calibre -lvs -hier _xt018_1243_
+calibre -lvs -hier _xt018_1243_
 ```
-- ``/CAD/mentor/calibre/2020-2-14-12/aoi_cal_2020.2_14.12/bin/calibre`` is the path of the calibre executable file.
+- ``calibre`` is the calibre executable file.
 - ``-lvs`` command performs the lvs comaprison between spice netlists of schematic and layout.
 - ``-hier`` command performs herarchical lvs comparision.
 - ``_xt018_1243_`` is the rule file.  
 
 - Both spice extraction and lvs comparison can be done using a single command
 ```bash
-/CAD/mentor/calibre/2020-2-14-12/aoi_cal_2020.2_14.12/bin/calibre -spice my_resister.sp -lvs -hier -nowait _xt018_1243_
+calibre -spice my_resister.sp -lvs -hier -nowait _xt018_1243_
 ```
 - ``-nowait`` command causes Calibre to wait approximately 10 seconds before attempting to acquire substitute licenses.  
 

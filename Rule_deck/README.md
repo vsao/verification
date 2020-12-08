@@ -44,13 +44,13 @@ calibre [ -lvs [ [ { -tl || -ts } cnet_file_name ][ -nonames ] [ -cell ][ -dblay
 calibre -spice cellname.sp rulefile
 ```
 - For an example spice extraction of poly-resistor(rnp1) is shown below:  
-```bash
-calibre -spice my_resister.sp _xt018_1243_
- ```
--   ``calibre``is the calibre executable file.
--   ``-spice`` command extracts spice netlist from layout file.
--   ``my_resister.sp`` is the name of the extracted spice file.
--   ``_xt018_1243_`` is the rule file.  
+  ```bash
+  calibre -spice my_resister.sp _xt018_1243_
+  ```
+  -   ``calibre``is the calibre executable file.
+  -   ``-spice`` command extracts spice netlist from layout file.
+  -   ``my_resister.sp`` is the name of the extracted spice file.
+  -   ``_xt018_1243_`` is the rule file.  
 
 - lvs comparison using command line
 ```bash

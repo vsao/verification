@@ -53,9 +53,9 @@ A source database contains circuit information such as schematic netlist or sour
   -   ``_xt018_1243_`` is the rule file.  
 
 - lvs comparison using command line
-```bash
-calibre -lvs -hier rulefile
-```
+  ```bash
+  calibre -lvs -hier rulefile
+  ```
 - For an example lvs comparison of poly-register(rnp1) is shown below:  
   ```bash
   calibre -lvs -hier _xt018_1243_
@@ -74,24 +74,24 @@ calibre -lvs -hier rulefile
 ### Output files
 By running the command for spice extraction and lvs comparison of a poly-resistor we get certain output files:  
 1. ``my_resistor.sp``           : Contains extracted spice netlist of layout named "my_resistor".
-```bash
-.SUBCKT my_resistor t2 t1  
-** N=4 EP=2 IP=0 FDC=1  
-R0 t2 t1 L=1e-05 W=2e-06 $[rnp1] $X=-1525 $Y=-1025 $D=122  
-.ENDS  
- ```
+   ```bash
+   .SUBCKT my_resistor t2 t1  
+   ** N=4 EP=2 IP=0 FDC=1  
+   R0 t2 t1 L=1e-05 W=2e-06 $[rnp1] $X=-1525 $Y=-1025 $D=122  
+   .ENDS  
+    ```
 2. ``netlistLAYOUT``           : Contains the same informations as in my_register.sp
-```bash
-.SUBCKT my_resistor T2 T1
-RR0 T2 T1 RNP1 l=1e-05 w=2e-06
-.ENDS
-```
+   ```bash
+   .SUBCKT my_resistor T2 T1
+   RR0 T2 T1 RNP1 l=1e-05 w=2e-06
+   .ENDS
+   ```
 3. ``netlistSOURCE``           : Contains extracted spice netlist of schmatic.
-```bash
-.SUBCKT my_resistor T1 T2
-RRR1 T1 T2 RNP1 l=1e-05 w=2e-06
-.ENDS
-```
+   ```bash
+   .SUBCKT my_resistor T1 T2
+   RRR1 T1 T2 RNP1 l=1e-05 w=2e-06
+   .ENDS
+   ```
 4. ``my_resistor.lvs.report.ext``  : Contains the extraction informations such as lvs report file name, layout time, creation time and current directory.  
 
 5. ``my_resistor.lvs.report``  : Contains results of lvs comparison such as ports, nets and instance mismatch along with extraction informations as described in my_resistor.lvs.report.ext.

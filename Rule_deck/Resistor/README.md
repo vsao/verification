@@ -34,12 +34,12 @@
 * It contains a wider rule file view for rnp1.(1st attempt)
 
 All the above input files are put together in a folder. Then the following commands are executed in this path:-
-1. ` calibre -spice my_resister.sp rule_file` generates the following output file:
+1. ` calibre -spice my_resister.sp inputregrule` generates the following output file:
 
 ## my_resister.sp
 * This is the spice file that is generated from layout.
 
-2. `calibre -lvs -hier rule_file` generates the following output files:
+2. `calibre -lvs -hier inputregrule` generates the following output files:
 
 ## netlist LAYOUT
 * This is the extracted netlist of layout after LVS Comparison.

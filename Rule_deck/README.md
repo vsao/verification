@@ -153,12 +153,12 @@ Syntax: `CONNECT <layer1> <layer2>......<layer N> BY <layer C>`
    
 - **DMACRO**: A MACRO definition is known as DMACRO. MACROS are used to make a sequence of computing instructions available to the programmer as a single program statement.  
 Syntax:   `
-```bash
-DMACRO macro_name[arguments]
-         {
-         SVRF Code
-         }
-```
+  ```bash
+  DMACRO macro_name[arguments]
+           {
+           SVRF Code
+           }
+  ```
    - Example:  
 ```bash  
 DMACRO getWLRes seed {[

@@ -1,0 +1,10 @@
+** CALIBRE LAYOUT NETLIST **
+** CALIBRE VERSION: v2020.2_14.12    Thu Apr 2 15:39:27 PDT 2020
+** LAYOUT NAME: cap_test.calibre.db (cap_test)
+** NETLIST FILE: netlistLAYOUT
+** GENERATED: Tue Dec  8 15:27:03 2020
+
+
+.SUBCKT cap_test T1 T2 
+CC0 T1 T2 CMM5T 
+.ENDS

@@ -1,0 +1,145 @@
+//------------------------------------------------------------
+//             Setup Environment
+//------------------------------------------------------------
+
+PRECISION  1000
+RESOLUTION 5
+
+UNIT CAPACITANCE FF
+UNIT LENGTH      U
+UNIT RESISTANCE  OHM
+
+MASK RESULTS DATABASE "mask.db"
+FLAG OFFGRID YES
+FLAG ACUTE YES 
+FLAG SKEW YES
+FLAG NONSIMPLE YES
+FLAG NONSIMPLE PATH YES
+
+TEXT DEPTH PRIMARY
+
+LAYOUT PROCESS BOX RECORD YES
+
+//------------------------------------------------------------
+//         Setup Defaults for LVS
+//------------------------------------------------------------
+
+//MASK SVDB DIRECTORY svdb XCALIBRE
+
+LVS REPORT                       "lvs.rep"
+LVS REPORT OPTION                S
+LVS POWER NAME                   VDD? DVDD VCC VDDA VDDB ADVDD VDDM
+LVS GROUND NAME                  GND? DVSS VSS GROUND AGND DGND VSSM
+LVS ABORT ON SUPPLY ERROR        NO
+LVS ALL CAPACITOR PINS SWAPPABLE NO
+LVS PIN NAME PROPERTY PHY_PIN    PIN
+LVS COMPONENT SUBTYPE PROPERTY   LVS_SUBTYPE
+LVS COMPONENT TYPE PROPERTY      LVS_TYPE
+LVS FILTER UNUSED BIPOLAR        NO
+LVS FILTER UNUSED MOS            NO
+LVS FILTER UNUSED RESISTORS      NO
+LVS FILTER UNUSED DIODES         NO
+LVS FILTER UNUSED CAPACITORS     NO
+LVS IGNORE PORTS                 NO
+LVS RECOGNIZE GATES              NONE
+LVS REDUCE PARALLEL BIPOLAR      NO
+LVS REDUCE PARALLEL CAPACITORS   NO
+//LVS REDUCE PARALLEL MOS          YES     [TOLERANCE L 0]
+LVS REDUCE SERIES   MOS          NO
+LVS REDUCE SPLIT    GATES        NO
+LVS REDUCE PARALLEL RESISTORS    NO
+LVS REDUCE SERIES CAPACITORS     NO
+LVS REDUCE SERIES RESISTORS      NO
+LVS REPORT MAXIMUM               100
+LVS PROPERTY RESOLUTION MAXIMUM  1000
+LVS SPICE REPLICATE DEVICES      YES
+LVS SPICE MULTIPLIER NAME       "M"
+LVS INJECT LOGIC                 NO
+LVS CHECK PORT NAMES             YES
+
+LVS WRITE LAYOUT NETLIST         "netlistLAYOUT"
+LVS WRITE SOURCE NETLIST         "netlistSOURCE"
+
+
+//------------------------------------------------------------
+//            INPUT-LAYERS
+//------------------------------------------------------------
+
+LAYER MAP   3     DATATYPE  0 50030
+LAYER diff_dg     50030                                                 // DF, Active Area
+LAYER MAP   47    DATATYPE  0 50470	LAYER capm        50470         // CM, MIM Top Plate Metal
+LAYER MAP  31     DATATYPE  0 50310
+LAYER MAP  31     DATATYPE  1 50311
+LAYER MAP  31     DATATYPE  9 50319
+LAYER met4_dg     50310 50319                                           //  M4, Metal4
+
+LAYER MAP  51     DATATYPE  0 50510     LAYER viatp       50510         // VT, Top Via
+LAYER MAP  33     DATATYPE  0 50330
+LAYER MAP  33     DATATYPE  1 50331
+LAYER MAP  33     DATATYPE  9 50339
+LAYER mettp_dg    50330 50339                                           // MT, Top Metal
+LAYER MAP  16     DATATYPE  9 50169
+LAYER met1_dg     50160 50169                                           // M1, Metal1
+LAYER MAP   7     DATATYPE  0 50070     LAYER pimp        50070         // IP, P+ Implant
+LAYER MAP  15     DATATYPE  0 50150     LAYER cont        50150         // CT, Contact
+
+LAYER MAP   31    TEXTTYPE 15 10315     LAYER id4txt      10315
+
+
+//...........................................................
+LAYER MAP  31 TEXTTYPE  3 50313    LAYER MET4_TEXT   50313
+TEXT LAYER       MET4_TEXT
+PORT LAYER TEXT  MET4_TEXT
+ATTACH MET4_TEXT m4trm 
+LVS BLACK BOX PORT  met4_dg    MET4_TEXT    m4trm
+
+
+LAYER MAP  33 TEXTTYPE  3 50333    LAYER METTP_TEXT  50333
+TEXT LAYER       METTP_TEXT
+PORT LAYER TEXT  METTP_TEXT
+ATTACH METTP_TEXT mttrm
+LVS BLACK BOX PORT  mettp_dg   METTP_TEXT   mttrm
+
+//------------------------------------------------------------
+//            Layer Definitions
+//------------------------------------------------------------
+
+met1 = copy met1_dg                        // Metal1 definition
+diff = copy diff_dg                       //Diffusion definition
+pdiff = diff AND pimp                    // pdiff definition
+met4 = copy met4_dg                     // Metal4 definition
+m4trm = copy met4                     // Metal4 text layer definition
+
+mettp = copy mettp_dg                // mettp layer definition
+mttrm = copy mettp                  // metal top text layer definition
+
+cmim = (capm AND met4) AND mettp  // capacitor definition
+
+
+//------------------------------------------------------------
+//            Layer Connections
+//------------------------------------------------------------
+
+CONNECT  met1 pdiff BY cont
+CONNECT  mttrm capm m4trm BY viatp
+
+//............................................................
+//            Device Definitions
+//............................................................
+
+DEVICE C(cmm5t)     cmim     mttrm      m4trm   NETLIST ELEMENT XC CMACRO getAreaPeriCap cmim
+
+//............................................................
+//            Macro definitions
+//............................................................
+
+
+DMACRO getAreaPeriCap seed {[
+property "AREA", "PERIMETER"
+   "AREA"      = AREA(seed)
+   "PERIMETER" = PERIM(seed)
+]}
+
+
+
+

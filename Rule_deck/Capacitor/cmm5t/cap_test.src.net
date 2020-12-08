@@ -1,0 +1,27 @@
+* SPICE export by:      S-Edit 2020.1.4
+* Export time:          Tue Dec  8 14:55:06 2020
+* Design path:          /home/NIS/projects/XT018-19/A0/work/tt18-vsao/lib.defs
+* Library:              my_lib
+* Cell:                 cap_test
+* Testbench:            Spice
+* View:                 schematic
+* Export as:            subcircuit definition
+* Export mode:          hierarchical
+* Exclude empty:        no
+* Exclude .model:       no
+* Exclude .hdl:         no
+* Exclude .end:         no
+* Expand paths:         no
+* Wrap lines:           no
+* Exclude simulator commands:  no
+* Exclude global pins:         no
+* Exclude instance locations:  no
+* Control property name(s):    CDL
+
+*************** Subcircuits ***************
+.subckt cap_test t1 t2 
+CC1 t1 t2 $[cmm5t] area=4e-10 perimeter=8e-05 m=1 $ $x=1460 $y=650 $w=20 $h=60
+.ends
+
+
+

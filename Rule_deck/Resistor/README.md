@@ -8,7 +8,7 @@
 | rule_file                |   my_resister.sp             |
 | xt018_1243               |   my_resister.lvs.report.ext |
 | my_resister.rul          |   my_resister.lvs.report     |
-| my_resister_final.rul    |   svdb                       |
+|                          |   svdb                       |
 
 ## my_resister.calibre.db 
 * This is the layout database file generated from layout.

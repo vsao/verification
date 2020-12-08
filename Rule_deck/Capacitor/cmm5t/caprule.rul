@@ -83,8 +83,6 @@ LAYER met1_dg     50160 50169                                           // M1, M
 LAYER MAP   7     DATATYPE  0 50070     LAYER pimp        50070         // IP, P+ Implant
 LAYER MAP  15     DATATYPE  0 50150     LAYER cont        50150         // CT, Contact
 
-LAYER MAP   31    TEXTTYPE 15 10315     LAYER id4txt      10315
-
 
 //...........................................................
 LAYER MAP  31 TEXTTYPE  3 50313    LAYER MET4_TEXT   50313

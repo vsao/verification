@@ -36,13 +36,13 @@ A source database contains circuit information such as schematic netlist or sour
 
 ### Calibre nmLVS and Calibre nmLVS-H Command Line
 - General Command 
-```bash
-calibre [ -lvs [ [ { -tl || -ts } cnet_file_name ][ -nonames ] [ -cell ][ -dblayers "name1,..." ][ -bpf [ no-extents ] ] [ -nl ] [ -cb ]] || [ -hier [ -automatch || -genhcells[=qs_tcl_file_name] ] || -flatten][ -ixf ] [ -nxf ]]
-```
+  ```bash
+  calibre [ -lvs [ [ { -tl || -ts } cnet_file_name ][ -nonames ] [ -cell ][ -dblayers "name1,..." ][ -bpf [ no-extents ] ] [ -nl ] [ -cb ]] || [ -hier [ -           automatch || -genhcells[=qs_tcl_file_name] ] || -flatten][ -ixf ] [ -nxf ]]
+  ```
 - Spice extraction using command line 
-```bash
-calibre -spice cellname.sp rulefile
-```
+  ```bash
+  calibre -spice cellname.sp rulefile
+  ```
 - For an example spice extraction of poly-resistor(rnp1) is shown below:  
   ```bash
   calibre -spice my_resister.sp _xt018_1243_

@@ -8,7 +8,7 @@
 | inputregrule             |   my_resister.sp             |
 | xt018_1243               |   my_resister.lvs.report.ext |
 | regrule.rul              |   my_resister.lvs.report     |
-|                          |   svdb                       |
+| regrul_mod.rul           |   svdb                       |
 
 ## my_resister.calibre.db 
 * This is the layout database file generated from layout.
@@ -35,6 +35,9 @@
 
 All the above input files are put together in a folder. Then the following commands are executed in this path:-
 1. ` calibre -spice my_resister.sp inputregrule` generates the following output file:
+
+## regrul_mod.rul 
+* Same as `regrule.rul` except macro definition. Here perimeter function is used to get W & L of a resistor insted of area.
 
 ## my_resister.sp
 * This is the spice file that is generated from layout.
